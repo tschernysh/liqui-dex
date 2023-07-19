@@ -1,5 +1,5 @@
-import { BrowserRouter, Routes} from "react-router-dom";
-import React  from 'react'
+import { BrowserRouter, Routes } from "react-router-dom";
+import React from 'react'
 import { RouterComponent } from "./routes/RouterComponent";
 import { routerSchema } from "./routes/routerSchema";
 import { useEffect, useMemo, useState } from "react";
@@ -114,16 +114,16 @@ const App = () => {
   }
 
   return (
-      <ToastifyContext.Provider value={{ setToasifyData: setToastData, toastifyData: toastData}}>
-        <ConfigContext.Provider value={{ ethereumClient, projectId }}>
-          <WagmiConfig config={wagmiConfig}>
-            <BrowserRouter>
-              <Routes>{routerSchema.map(RouterComponent)}</Routes>
-            </BrowserRouter>
-            <Toastify />
-          </WagmiConfig >
-        </ConfigContext.Provider>
-      </ToastifyContext.Provider>
+    <ToastifyContext.Provider value={{ setToasifyData: setToastData, toastifyData: toastData }}>
+      <ConfigContext.Provider value={{ ethereumClient, projectId }}>
+        <WagmiConfig config={wagmiConfig}>
+          <BrowserRouter>
+            <Routes>{routerSchema.map(RouterComponent)}</Routes>
+          </BrowserRouter>
+          <Toastify />
+        </WagmiConfig >
+      </ConfigContext.Provider>
+    </ToastifyContext.Provider>
 
 
   )

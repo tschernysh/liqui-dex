@@ -1,20 +1,20 @@
-import {Navigate} from 'react-router-dom';
-import {MainLayout} from "../layouts/MainLayout/MainLayout";
+import { Navigate } from 'react-router-dom';
+import { MainLayout } from "../layouts/MainLayout/MainLayout";
 // import {ApplicationLayout} from "../layouts/ApplicationLayout/ApplicationLayout";
 // import {ApplicationDashboard} from "../components/ApplicationDashboard/ApplicationDashboard";
 // import {ApplicationBonuses} from "../components/ApplicationBonuses/ApplicationBonuses";
 import Config from "../config";
-import {LandingPage} from "../pages/LandingPage/LandingPage";
+import { LandingPage } from "../pages/LandingPage/LandingPage";
 
 export const routerSchema = [{
-    path: `${Config().DEPLOY_URL_PREFIX}/`,
-    exact: true,
-    title: 'Main',
-    element: <MainLayout/>,
-    children: [{
-        index: true,
-        element: <LandingPage/>,
-    }]
+  path: `${Config().DEPLOY_URL_PREFIX}/`,
+  exact: true,
+  title: 'Main',
+  element: <MainLayout />,
+  children: [{
+    index: true,
+    element: <LandingPage />,
+  }]
 }/*, {
     path: 'app',
     title: 'Application',
@@ -31,6 +31,6 @@ export const routerSchema = [{
         element: <Navigate to={`${Config().DEPLOY_URL_PREFIX}/app/dashboard`}/>
     }]
 }*/, {
-    path: `${Config().DEPLOY_URL_PREFIX}/*`,
-    element: <Navigate to={`${Config().DEPLOY_URL_PREFIX}/`}/>
+  path: `${Config().DEPLOY_URL_PREFIX}/*`,
+  element: <Navigate to={`${Config().DEPLOY_URL_PREFIX}/`} />
 }];
