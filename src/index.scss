@@ -3,7 +3,7 @@
 
 body {
   margin: 0;
-  font-family: 'Merriweather Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(301.61deg, #111416 41.68%, #1E2225 92.17%);
@@ -12,30 +12,6 @@ body {
 
 html{
   scroll-behavior:smooth;
-
-  @include for-specific-size(2160px) {
-    zoom: 1.5;
-    -moz-transform: scale(1.5);
-    -moz-transform-origin: 50% 0;
-  }
-
-  @include for-specific-size(1920px) {
-    zoom: 1.33;
-    -moz-transform: scale(1.33);
-    -moz-transform-origin: 50% 0;
-  }
-
-  @include for-specific-size(1600px) {
-    zoom: 1.1;
-    -moz-transform: scale(1.1);
-    -moz-transform-origin: 50% 0;
-  }
-
-  @include for-specific-size(1440px) {
-    zoom: 1;
-    -moz-transform: scale(1);
-    -moz-transform-origin: 50% 0;
-  }
 }
 
 code {
