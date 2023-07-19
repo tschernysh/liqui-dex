@@ -1,0 +1,105 @@
+.landing {
+  section {
+    padding: 50px;
+  }
+
+  &__intro {
+    display: flex;
+    align-items: center;
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+
+      h1 {
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%;
+        color: white;
+
+        span {
+          background: rgb(65,62,250);
+          background: linear-gradient(90deg, rgba(65,62,250,1) 0%, rgba(117,46,252,1) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          font-size: 80px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 130%;
+        }
+      }
+
+      &__description {
+        display: flex;
+        align-items: center;
+        margin-top: 30px;
+
+        p {
+          font-size: 19px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 28px;
+          color: white;
+        }
+
+        svg {
+          height: 40px;
+          flex:0 0 40px;
+          margin-right: 20px;
+        }
+      }
+    }
+
+    &__image {
+      flex: 1 1 auto;
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    button {
+      margin-top: 50px;
+      border-radius: 8px;
+      border: 1px solid #000;
+      margin-right: auto;
+      background: rgb(65,62,250);
+      background: linear-gradient(90deg, rgba(65,62,250,1) 0%, rgba(117,46,252,1) 100%);
+      padding: 20px 32px;
+      color: #FFF;
+      text-align: center;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+
+  &__partners {
+    background: #212528;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+    position: relative;
+
+    &:after {
+      background: inherit;
+      height: 100%;
+      content: '';
+      position: absolute;
+      left: calc(50% - 50vw);
+      transform: translate(-50, 0);
+      width: 100vw;
+      z-index: -1;
+    }
+
+    img {
+      height: 37px;
+      flex: 1 1 auto;
+      object-position: center center;
+      object-fit: scale-down;
+    }
+  }
+}
