@@ -32,6 +32,7 @@ const App = () => {
   }, [])
 
   useEffect(() => {
+    return
     let interval
     interval = setInterval(() => {
       if (!seconds) {
@@ -55,6 +56,7 @@ const App = () => {
   }, [seconds])
 
   useEffect(() => {
+    return
     if (isNeedToUpdate) {
       dispatch(AccountActionCreator.getContractInfo())
       if (!!walletAddress) {
@@ -73,6 +75,7 @@ const App = () => {
     }
   }, [walletAddress, notCorrectChain])
   useEffect(() => {
+    return
     // Function to handle wallet change event
     const handleAccountsChanged = (accounts) => {
       dispatch(ApplicationActionCreator.setWalletAddress(accounts[0]))

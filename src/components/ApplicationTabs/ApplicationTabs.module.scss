@@ -1,0 +1,11 @@
+.tab__element {
+  a{
+    color: white;
+    pointer-events: none;
+  }
+
+  a[disabled] {
+    color: #5F6574;
+  }
+}
+
