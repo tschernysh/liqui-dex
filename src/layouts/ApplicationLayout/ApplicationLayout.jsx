@@ -7,6 +7,9 @@ import { routerBook } from 'routes/routerBook';
 import { useAccount } from 'wagmi';
 import { AccountActionCreator } from 'store/reducers/account/action-creator';
 import { ApplicationTabs } from 'components/ApplicationTabs/ApplicationTabs';
+import { LandingHeader } from 'components/LandingHeader/LandingHeader';
+import { DepositBlock } from 'components/DepositBlock/DepositBlock';
+import { LandingFooter } from 'components/LandingFooter/LandingFooter';
 
 export const ApplicationLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -53,11 +56,14 @@ export const ApplicationLayout = () => {
   return (
     <main className={s.app}>
       <section className={s.app__body}>
+        <LandingHeader />
         <div className={s.app__body__content_wrapper}>
           <div className={s.app__body__content_wrapper__content}>
             <ApplicationTabs />
+            <DepositBlock />
           </div>
         </div>
+        <LandingFooter />
       </section>
     </main>
   )

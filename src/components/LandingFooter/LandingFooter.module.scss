@@ -1,0 +1,11 @@
+.footer{
+    background: #0D0D0D;
+    width: 100%;
+    .referrals{
+        display: flex;
+        flex-direction: row;
+        .tile {
+            flex: 1 1 100%;
+        }
+    }    
+}
