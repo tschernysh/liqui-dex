@@ -1,0 +1,45 @@
+@import '../../misc/variables.scss';
+@import '../../misc/mixin.scss';
+
+.app {
+  width: 100%;
+  display: flex;
+  background: var(--main-bg-color);
+}
+
+.app__body {
+  height: 100vh;
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+
+  @include for-specific-size(1300px) {
+    height: auto;
+  }
+
+  &__content_wrapper {
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+
+    @include for-specific-size(1300px) {
+      overflow: auto;
+      flex-direction: column;
+    }
+
+    &__content {
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 25px;
+      border-radius: 8px;
+      background: var(--dark-bg-color);
+      row-gap: 25px;
+      flex: 1 1 0;
+
+      @include for-specific-size($mobile-min) {
+        padding: 10px;
+      }
+    }
+  }
+}
