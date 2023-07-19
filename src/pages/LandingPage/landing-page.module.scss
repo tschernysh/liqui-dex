@@ -1,4 +1,5 @@
 .landing {
+  overflow-x: visible;
   section {
     padding: 50px;
   }
@@ -90,7 +91,7 @@
       content: '';
       position: absolute;
       left: calc(50% - 50vw);
-      transform: translate(-50, 0);
+      transform: translate(-3px, 0);
       width: 100vw;
       z-index: -1;
     }
@@ -100,6 +101,69 @@
       flex: 1 1 auto;
       object-position: center center;
       object-fit: scale-down;
+    }
+  }
+
+  &__about {
+    display: flex;
+    align-items: center;
+    padding-top: 125px !important;
+    position: relative;
+    padding-bottom: 300px !important;
+
+    &:before {
+      z-index: -2;
+      content: '';
+      position: absolute;
+      background: url("../../media/img/backgroundCircles.svg") center 80px no-repeat;
+      width: 100vw;
+      height: 100%;
+      background-size: cover;
+      left: calc(50% - 50vw);
+      transform: translate(-3px, 0);
+      overflow: hidden;
+    }
+
+    &__image {
+      margin-left: 75px;
+      width: 700px;
+      flex: 0 0 700px;
+      margin-right: 100px;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        content: '';
+        height: 95%;
+        aspect-ratio: 1;
+        border-radius: 594px;
+        background: linear-gradient(180deg, rgba(35, 47, 22, 0.00) 0%, rgba(35, 47, 22, 0.00) 60%, rgba(66, 62, 250, 0.99) 99.99%, #B01CFF 100%);
+        filter: blur(44px);
+      }
+
+      img {
+        mix-blend-mode: hard-light;
+        object-fit: scale-down;
+        width: 100%;
+      }
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      color: white;
+      max-width: 440px;
+
+      h3 {
+        font-size: 48px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 71px;
+        margin-bottom: 40px;
+      }
     }
   }
 }

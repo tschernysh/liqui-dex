@@ -8,6 +8,31 @@ import discrodLogo from 'media/img/discrodLogo.png'
 import jumpLogo from 'media/img/jumpLogo.png'
 import unknownLogo from 'media/img/unknownLogo.png'
 import magicEdenLogo from 'media/img/magicEdenLogo.png'
+
+import aboutImage from 'media/img/aboutImage.png'
+
+const stages = [{
+    text: 'Platform launch',
+    icon: '',
+    iconAngle: '33deg'
+}, {
+    text: 'Start of staking of BUSD token',
+    icon: '',
+    iconAngle: '-7deg'
+}, {
+    text: 'LDP Token Own Token Listing',
+    icon: '',
+    iconAngle: '-5deg'
+}, {
+    text: 'LDP token staking',
+    icon: '',
+    iconAngle: '-9deg'
+}, {
+    text: 'Partnerships and staking of DeFI platform tokens',
+    icon: '',
+    iconAngle: '-47deg'
+}]
+
 export const LandingPage = () => {
     return (
         <main className={s.landing}>
@@ -31,6 +56,7 @@ export const LandingPage = () => {
                     <img src={landingIntoBanner} alt={'landingIntoBanner'}/>
                 </div>
             </section>
+
             <section className={s.landing__partners}>
                 <img src={braveLogo} alt={'braveLogo'}/>
                 <img src={circleLogo} alt={'circleLogo'}/>
@@ -38,6 +64,22 @@ export const LandingPage = () => {
                 <img src={jumpLogo} alt={'jumpLogo'}/>
                 <img src={unknownLogo} alt={'unknownLogo'}/>
                 <img src={magicEdenLogo} alt={'magicEdenLogo'}/>
+            </section>
+
+            <section className={s.landing__about}>
+                <div className={s.landing__about__image}>
+                    <img src={aboutImage} alt={'aboutImage'}/>
+                </div>
+                <div className={s.landing__about__text}>
+                    <h3>About LiquiDex</h3>
+                    <p>Our goal is to popularize staking and make it accessible to millions of users.<br/><br/><br/>We are developing a platform on which every user will be able to receive a reward from any DeFi
+                        project token by adding it to our staking pool. And all this, with simple and transparent
+                        staking mechanics and a user-friendly interface.</p>
+                </div>
+            </section>
+
+            <section classname={s.landing__stages}>
+
             </section>
         </main>
     )
