@@ -1,0 +1,120 @@
+@import 'misc/mixin.scss';
+@import 'misc/variables.scss';
+
+body {
+  margin: 0;
+  font-family: 'Merriweather Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-bg-color);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+html{
+  scroll-behavior:smooth;
+
+  @include for-specific-size(2160px) {
+    zoom: 1.5;
+    -moz-transform: scale(1.5);
+    -moz-transform-origin: 50% 0;
+  }
+
+  @include for-specific-size(1920px) {
+    zoom: 1.33;
+    -moz-transform: scale(1.33);
+    -moz-transform-origin: 50% 0;
+  }
+
+  @include for-specific-size(1600px) {
+    zoom: 1.1;
+    -moz-transform: scale(1.1);
+    -moz-transform-origin: 50% 0;
+  }
+
+  @include for-specific-size(1440px) {
+    zoom: 1;
+    -moz-transform: scale(1);
+    -moz-transform-origin: 50% 0;
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  transition: .3s all;
+  border: none;
+  outline: none;
+  background-color: var(--main-design-color);
+  color: var(--dark-bg-color);
+  font-weight: 700;
+  white-space: nowrap;
+  padding: 14px 24px;
+  box-shadow: 0 0 26px var(--main-design-color);
+  cursor: pointer;
+}
+
+
+button:disabled {
+  cursor: not-allowed;
+  box-shadow: none;
+  background-color: #717171;
+}
+
+a, button {
+  border-radius: 8px;
+}
+
+:root {
+  --main-bg-color: #111317;
+  --main-design-color: #e3af2e;
+  --main-design-color-hover: #fcc337;
+  --additional-design-color: #ffe600;
+  --light-bg-color: #1d2127;
+  --dark-bg-color: #09090b;
+  --additional-bg-color: #282c34;
+  --light-text-color: #5f6574;
+  --color-error: red;
+  --color-success: #10d47f;
+  --w-32: 32px;
+  --w-24: 24px;
+  --w-20: 20px;
+  --w-16: 16px;
+  --w-14: 14px;
+  --w-12: 12px;
+  --w-8: 8px;
+  --transition-event: .2s;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--main-bg-color);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--light-text-color);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*.control-dots {
+  z-index: 1 !important;
+}*/
