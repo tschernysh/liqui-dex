@@ -9,29 +9,45 @@ import jumpLogo from 'media/img/jumpLogo.png'
 import unknownLogo from 'media/img/unknownLogo.png'
 import magicEdenLogo from 'media/img/magicEdenLogo.png'
 
+import stage1 from 'media/img/stage1.png'
+import stage2 from 'media/img/stage2.png'
+import stage3 from 'media/img/stage3.png'
+import stage4 from 'media/img/stage4.png'
+import stage5 from 'media/img/stage5.png'
+
+import strength1 from 'media/img/strength1.png'
+import strength2 from 'media/img/strength2.png'
+import strength3 from 'media/img/strength3.png'
+import strength4 from 'media/img/strength4.png'
+import strength5 from 'media/img/strength5.png'
+import strength6 from 'media/img/strength6.png'
 import aboutImage from 'media/img/aboutImage.png'
 
 const stages = [{
     text: 'Platform launch',
-    icon: '',
-    iconAngle: '33deg'
+    icon: stage1,
 }, {
     text: 'Start of staking of BUSD token',
-    icon: '',
-    iconAngle: '-7deg'
+    icon: stage2,
 }, {
     text: 'LDP Token Own Token Listing',
-    icon: '',
-    iconAngle: '-5deg'
+    icon: stage3,
 }, {
     text: 'LDP token staking',
-    icon: '',
-    iconAngle: '-9deg'
+    icon: stage4,
 }, {
     text: 'Partnerships and staking of DeFI platform tokens',
-    icon: '',
-    iconAngle: '-47deg'
+    icon: stage5,
 }]
+
+const ourStrength = [
+    {icon: strength1, header: 'Platform security', text: 'All staking pools on our platform operate on a smart contract. This guarantees that you will receive accruals according to the terms of the pool.'},
+    {icon: strength2, header: 'Platform Development', text: 'We have global development plans. Staking BUSD, native token, staking tokens from other platforms, own wallet - this is just the beginning of our journey'},
+    {icon: strength3, header: 'Benefit for Early Users', text: 'Early users of the platform will not only benefit from marketing, but also Airdrop platform tokens'},
+    {icon: strength4, header: 'Smart contract audits', text: 'Each of the smart contracts that will be used for staking is audited by an audit company'},
+    {icon: strength5, header: 'Popularization of startups', text: 'We are the first platform that allows users to receive tokens not only from world-famous tokens, but also from tokens of various projects'},
+    {icon: strength6, header: 'Marketing bonuses', text: 'Users who share information about our platform with other users receive additional rewards in the form of bonuses'}
+]
 
 export const LandingPage = () => {
     return (
@@ -72,14 +88,46 @@ export const LandingPage = () => {
                 </div>
                 <div className={s.landing__about__text}>
                     <h3>About LiquiDex</h3>
-                    <p>Our goal is to popularize staking and make it accessible to millions of users.<br/><br/><br/>We are developing a platform on which every user will be able to receive a reward from any DeFi
+                    <p>Our goal is to popularize staking and make it accessible to millions of users.<br/><br/><br/>We
+                        are developing a platform on which every user will be able to receive a reward from any DeFi
                         project token by adding it to our staking pool. And all this, with simple and transparent
                         staking mechanics and a user-friendly interface.</p>
                 </div>
             </section>
 
-            <section classname={s.landing__stages}>
+            <section className={s.landing__stages}>
+                <h3>Platform Development Stages</h3>
 
+                <div className={s.landing__stages__tiles}>
+                    {stages.map(({text, icon, iconAngle}, index) => {
+                        return (
+                            <div key={index} className={s.landing__stages__tiles__tile}>
+                                <p><span>0{index + 1}</span>{text}</p>
+                                <img src={icon} alt={`stage${index + 1}`}/>
+                            </div>
+                        )
+                    })}
+                </div>
+
+                <p className={s.landing__stages__description}>Launching the platform is just the first first step in creating a decentralized token staking ecosystem. And the first users of our platform will receive their privileges.</p>
+            </section>
+
+            <section className={s.landing__us}>
+                <h3>Why choose us?</h3>
+
+                <div className={s.landing__us__tiles}>
+                    {ourStrength.map(({header, icon, text}, index) => {
+                        return (
+                            <div key={index} className={s.landing__us__tiles__tile}>
+                                <img src={icon} alt={`us${index + 1}`}/>
+                                <div className={s.landing__us__tiles__tile__text}>
+                                    <b>{header}</b>
+                                    <p>{text}</p>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </section>
         </main>
     )
