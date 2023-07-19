@@ -10,9 +10,13 @@
     text-decoration: none;
     display: flex;
     align-items: center;
-    font-size: 34px;
-    font-style: normal;
-    font-weight: 700;
+
+    p {
+      font-size: 34px;
+      font-style: normal;
+      font-weight: 700;
+      font-family: 'Nunito', sans-serif !important;
+    }
 
     img {
       margin-right: 10px;
@@ -37,7 +41,7 @@
       color: rgba(255, 255, 255, 0.75);
       font-size: 16px;
       font-style: normal;
-      font-weight: 700;
+      font-weight: 600;
       line-height: normal;
 
       svg {

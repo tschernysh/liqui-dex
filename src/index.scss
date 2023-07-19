@@ -3,7 +3,6 @@
 
 body {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--11, linear-gradient(332deg, #111416 0%, #1E2225 100%));
@@ -29,6 +28,7 @@ code {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 /* width */
