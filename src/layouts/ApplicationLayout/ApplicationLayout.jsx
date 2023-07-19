@@ -54,6 +54,8 @@ export const ApplicationLayout = () => {
   }, [isNavOpen]);
 
   return (
+    <>
+    
     <main className={s.app}>
       <section className={s.app__body}>
         <LandingHeader />
@@ -63,8 +65,10 @@ export const ApplicationLayout = () => {
             <DepositBlock />
           </div>
         </div>
-        <LandingFooter />
+        
       </section>
     </main>
+    <LandingFooter />
+    </>
   )
 }
