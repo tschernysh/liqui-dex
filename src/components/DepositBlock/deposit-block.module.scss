@@ -2,11 +2,25 @@
 @import '../../misc/variables.scss';
 
 .deposit {
+  position: relative;
   margin-top: 126px;
   padding: 40px;
+  z-index: 2;
   border-radius: 29.255px;
   background: linear-gradient(315deg, #0F1113 0%, #212528 100%);
   box-shadow: 0px -1.950331211090088px 0px 0px rgba(0, 0, 0, 0.16) inset, 0px 1.950331211090088px 0px 0px rgba(255, 255, 255, 0.10) inset;
+  // &:after{
+  //   content: '';
+  //   position: absolute;
+  //   width: 110%;
+  //   height: 110%;
+  //   left: 0;
+  //   top: 0;
+  //   z-index: 1;
+  //   border-radius: 39.007px;
+  //   background: #161818;
+  //   box-shadow: 0px 3.900662422180176px 0px 0px rgba(0, 0, 0, 0.10) inset, 0px -1.950331211090088px 0px 0px rgba(255, 255, 255, 0.16) inset;
+  // }
   .deposit__wrapper{
     display: flex;
     justify-content: space-between;
@@ -17,9 +31,9 @@
   }
   &__header {
     color: white;
-    font-size: 1.1em;
-    font-weight: 500;
-    margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 42px;
   }
 
   &__selectors {
@@ -305,15 +319,39 @@
   }
 
   &__info {
-    margin-top: 20px;
     background: var(--light-bg-color);
-    padding: 12px 36px;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     font-size: .9em;
     color: white;
+    gap: 20px;
+    .deposit__tile{
+      border-radius: 8px;
+      background: #212528;
+      padding: 35px 36px 54px;
+      display: flex;
+      flex-direction: column;
+      gap: 44px;
+      flex: 1 1 auto;
+      p{
+        text-align: center;
+      }
+      div{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        justify-content: center;
+        span{
+          color: #fff;
+          font-size: 28px;
+          font-weight: 700;
+
+        }
+      }
+    }
 
     @include for-specific-size(640px) {
       padding: 10px 18px;

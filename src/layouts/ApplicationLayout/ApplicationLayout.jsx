@@ -10,6 +10,7 @@ import { ApplicationTabs } from 'components/ApplicationTabs/ApplicationTabs';
 import { LandingHeader } from 'components/LandingHeader/LandingHeader';
 import { DepositBlock } from 'components/DepositBlock/DepositBlock';
 import { LandingFooter } from 'components/LandingFooter/LandingFooter';
+import { ApplicationDeposits } from 'components/ApplicationDeposits/ApplicationDeposits';
 
 export const ApplicationLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -55,20 +56,21 @@ export const ApplicationLayout = () => {
 
   return (
     <>
-    
-    <main className={s.app}>
-      <section className={s.app__body}>
-        <LandingHeader />
-        <div className={s.app__body__content_wrapper}>
-          <div className={s.app__body__content_wrapper__content}>
-            <ApplicationTabs />
-            <DepositBlock />
+
+      <main className={s.app}>
+        <section className={s.app__body}>
+          <LandingHeader />
+          <div className={s.app__body__content_wrapper}>
+            <div className={s.app__body__content_wrapper__content}>
+              <ApplicationTabs />
+              <DepositBlock />
+              <ApplicationDeposits />
+            </div>
           </div>
-        </div>
-        
-      </section>
-    </main>
-    <LandingFooter />
+
+        </section>
+      </main>
+      <LandingFooter />
     </>
   )
 }

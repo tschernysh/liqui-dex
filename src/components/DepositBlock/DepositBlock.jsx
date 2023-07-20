@@ -74,9 +74,10 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
 
   return (
     <div onChange={changeHandlers} className={s.deposit}>
-      <p className={s.deposit__header}>Join the LiquiDex</p>
+      
       <div className={s.deposit__wrapper}>
         <div className={s.deposit__container}>
+        <p className={s.deposit__header}>Join the LiquiDex</p>
           <div className={s.deposit__selectors__deposite_selector}>
             <p data-dashboard={showMin}>Investment amount BUSD (min. 10 BUSD)</p>
             <div data-dashboard={showMin} className={s.deposit__selectors__deposite_selector__input_wrapper}>
@@ -156,12 +157,41 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
         </div>
         <div className={s.deposit__container}>
           <div data-dashboard={showMin} className={s.deposit__info}>
+              <div className={s.deposit__tile}>
+                <p>Daily ROI</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>9.55%</span>
+                </div>
+              </div>
+              <div className={s.deposit__tile}>
+                <p>Daily ROI</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>9.55%</span>
+                </div>
+              </div>
+              <div className={s.deposit__tile}>
+                <p>Daily ROI</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>9.55%</span>
+                </div>
+              </div>
+              <div className={s.deposit__tile}>
+                <p>Daily ROI</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>9.55%</span>
+                </div>
+              </div>
+            {/*             
             <p>Bonus: <span>{bonusesField}</span></p>
             <p>Total profit: <span>{120 + (rangeValue - config.min) * 5 + '%'}</span></p>
             <p>In <i> {rangeValue} </i> days will
               earn: <span>{(depositAmount * (120 + (rangeValue - config.min) * 5) / 100).toFixed(2)} BUSD</span></p>
             <p>Daily ROI: <span>{(depositAmount * ((120 + (rangeValue - config.min) * 5) / 100) / rangeValue / 10).toFixed(2)} %</span>
-            </p>
+            </p> */}
           </div>
         </div>
         
