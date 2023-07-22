@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { routerBook } from 'routes/routerBook';
 import BNB from 'media/img/bnb.png'
-import {ReactComponent as Edit} from 'media/img/edit.svg'
+import { ReactComponent as Edit } from 'media/img/edit.svg'
 
 const config = {
   min: 10,
@@ -74,40 +74,40 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
 
   return (
     <div onChange={changeHandlers} className={s.deposit}>
-      
+
       <div className={s.deposit__wrapper}>
         <div className={s.deposit__container}>
-        <p className={s.deposit__header}>Join the LiquiDex</p>
+          <p className={s.deposit__header}>Join the LiquiDex</p>
           <div className={s.deposit__selectors__deposite_selector}>
             <p data-dashboard={showMin}>Investment amount BUSD (min. 10 BUSD)</p>
             <div data-dashboard={showMin} className={s.deposit__selectors__deposite_selector__input_wrapper}>
               <input data-dashboard={showMin} name={'deposit-selector'} value={depositAmount} />
               <div className={s.deposit__selectors__deposite_selector__input_wrapper__icons}>
                 <Edit />
-                <img src={BNB} alt="" /> 
+                <img src={BNB} alt="" />
               </div>
             </div>
           </div>
           <div data-dashboard={showMin} className={s.deposit__selectors}>
-          <div data-dashboard={showMin} className={s.deposit__selectors__range_selector}>
-            <p data-dashboard={showMin}>Deposit period (days)</p>
-            <label htmlFor={'period-selector'}>
-              {isNotificationVisible && <i className={s.deposit__selectors__range_notification}
-                style={{ '--range-percent-width': `${((rangeValue - config.min) / (config.max - config.min)) * 100}%` }}>{rangeValue}</i>}
-              <span data-dashboard={showMin}
-                style={{ '--range-percent-width': `${((rangeValue - config.min) / (config.max - config.min)) * 100}%` }}
-                className={s.deposit__selectors__range_indicator} />
-              <input onMouseOver={onInputHover} onMouseLeave={onInputHoverLeft} name={'period-selector'}
-                value={rangeValue} step={1} type={"range"} min={10} max={33} />
-            </label>
-            <div className={s.deposit__selectors__range_selector__period_labels}>
-              <span>10 days</span>
-              <span>33 days</span>
+            <div data-dashboard={showMin} className={s.deposit__selectors__range_selector}>
+              <p data-dashboard={showMin}>Deposit period (days)</p>
+              <label htmlFor={'period-selector'}>
+                {isNotificationVisible && <i className={s.deposit__selectors__range_notification}
+                  style={{ '--range-percent-width': `${((rangeValue - config.min) / (config.max - config.min)) * 100}%` }}>{rangeValue}</i>}
+                <span data-dashboard={showMin}
+                  style={{ '--range-percent-width': `${((rangeValue - config.min) / (config.max - config.min)) * 100}%` }}
+                  className={s.deposit__selectors__range_indicator} />
+                <input onMouseOver={onInputHover} onMouseLeave={onInputHoverLeft} name={'period-selector'}
+                  value={rangeValue} step={1} type={"range"} min={10} max={33} />
+              </label>
+              <div className={s.deposit__selectors__range_selector__period_labels}>
+                <span>10 days</span>
+                <span>33 days</span>
+              </div>
             </div>
+
           </div>
-          
-        </div>
-      
+
           <div className={s.deposit__submit}>
             <button disabled={!!walletAddress ? depositAmount > tokenBalance || depositAmount < 10 : false}
               onClick={handleDeposit}>{isDepositTransaction ? (
@@ -157,34 +157,34 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
         </div>
         <div className={s.deposit__container}>
           <div data-dashboard={showMin} className={s.deposit__info}>
-              <div className={s.deposit__tile}>
-                <p>Daily ROI</p>
-                <div>
-                  <img src={BNB} alt="" />
-                  <span>9.55%</span>
-                </div>
+            <div className={s.deposit__tile}>
+              <p>Daily ROI</p>
+              <div>
+                <img src={BNB} alt="" />
+                <span>9.55%</span>
               </div>
-              <div className={s.deposit__tile}>
-                <p>Daily ROI</p>
-                <div>
-                  <img src={BNB} alt="" />
-                  <span>9.55%</span>
-                </div>
+            </div>
+            <div className={s.deposit__tile}>
+              <p>Daily ROI</p>
+              <div>
+                <img src={BNB} alt="" />
+                <span>9.55%</span>
               </div>
-              <div className={s.deposit__tile}>
-                <p>Daily ROI</p>
-                <div>
-                  <img src={BNB} alt="" />
-                  <span>9.55%</span>
-                </div>
+            </div>
+            <div className={s.deposit__tile}>
+              <p>Daily ROI</p>
+              <div>
+                <img src={BNB} alt="" />
+                <span>9.55%</span>
               </div>
-              <div className={s.deposit__tile}>
-                <p>Daily ROI</p>
-                <div>
-                  <img src={BNB} alt="" />
-                  <span>9.55%</span>
-                </div>
+            </div>
+            <div className={s.deposit__tile}>
+              <p>Daily ROI</p>
+              <div>
+                <img src={BNB} alt="" />
+                <span>9.55%</span>
               </div>
+            </div>
             {/*             
             <p>Bonus: <span>{bonusesField}</span></p>
             <p>Total profit: <span>{120 + (rangeValue - config.min) * 5 + '%'}</span></p>
@@ -194,10 +194,10 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
             </p> */}
           </div>
         </div>
-        
+
       </div>
-      
-      
+
+
     </div>
   )
 }

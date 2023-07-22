@@ -11,6 +11,8 @@ import { LandingHeader } from 'components/LandingHeader/LandingHeader';
 import { DepositBlock } from 'components/DepositBlock/DepositBlock';
 import { LandingFooter } from 'components/LandingFooter/LandingFooter';
 import { ApplicationDeposits } from 'components/ApplicationDeposits/ApplicationDeposits';
+import { ApplicationStatistics } from 'components/ApplicationStatistics/ApplicationStatistics';
+import { ApplicationAffiliate } from 'components/ApplicationAffilate/ApplicationAffiliate';
 
 export const ApplicationLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -63,14 +65,13 @@ export const ApplicationLayout = () => {
           <div className={s.app__body__content_wrapper}>
             <div className={s.app__body__content_wrapper__content}>
               <ApplicationTabs />
-              <DepositBlock />
-              <ApplicationDeposits />
+              <ApplicationAffiliate />
             </div>
           </div>
 
         </section>
       </main>
-      <LandingFooter />
+      {/*<LandingFooter />*/}
     </>
   )
 }
