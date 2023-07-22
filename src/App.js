@@ -14,14 +14,12 @@ import { Toastify } from "./components/Toastify/Toastify";
 
 
 const App = () => {
-
   const dispatch = useDispatch()
   const { walletAddress, isNeedToUpdate, notCorrectChain, redirectTo, toastData } = useSelector(state => state.applicationReducer)
   const [seconds, setSeconds] = useState(0)
   const [wagmiConfig, setWagmiConfig] = useState()
   const [ethereumClient, setEthereumClient] = useState()
   const [projectId, setProjectId] = useState()
-
 
   useMemo(() => {
     const { wagmiConfig, ethereumClient, projectId } = initWagmi()
@@ -87,9 +85,7 @@ const App = () => {
 
       if (chainId !== Config().CHAIN_ID) {
         dispatch(ApplicationActionCreator.setNotCorrectChain(false))
-        return
       } else dispatch(ApplicationActionCreator.setNotCorrectChain(true))
-
     }
 
 

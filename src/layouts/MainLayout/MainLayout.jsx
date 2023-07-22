@@ -16,17 +16,14 @@ export const MainLayout = () => {
   const navigate = useNavigate()
 
   const signInButtonClickHandler = useCallback(() => {
-    return
     if (!walletAddress) {
       open()
     } else {
       navigate(routerBook.dashboard)
-      return
     }
   }, [window.wallet])
 
   useEffect(() => {
-    return
     if (!!redirectTo) {
       const path = redirectTo
       dispatch(ApplicationActionCreator.setRedirectTo(null))
