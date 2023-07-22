@@ -35,6 +35,14 @@ import affiliateIcon from 'media/img/affiliate.png'
 import {LeaderProgram} from "../../components/LeaderProgram/LeaderProgram";
 
 import {ReactComponent as Path} from 'media/img/path.svg'
+import {DepositBlock} from "../../components/DepositBlock/DepositBlock";
+import {useSearchParams} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {useAccount, useWalletClient} from "wagmi";
+import {useContext, useEffect} from "react";
+import {ConfigContext} from "../../applicationContext";
+import {ApplicationActionCreator} from "../../store/reducers/application/action-creator";
+import {Web3Modal} from "@web3modal/react";
 
 const stages = [{
     text: 'Platform launch',
@@ -95,8 +103,35 @@ const affiliateData = [
 ]
 
 export const LandingPage = () => {
+    const [searchParams, setSearchParams] = useSearchParams()
+    const { ethereumClient, projectId } = useContext(ConfigContext)
+    const { connector: activeConnector, address, isDisconnected } = useAccount()
+    const { data, isError } = useWalletClient()
+    const dispatch = useDispatch()
+
+
+    useEffect(() => {
+        console.log(address, data)
+        if (!!data && !isDisconnected) {
+            dispatch(ApplicationActionCreator.setWeb3(data))
+            dispatch(ApplicationActionCreator.connectConnectWallet())
+        }
+    }, [address, data])
+
+    useEffect(() => {
+        const referral = Object.fromEntries(searchParams.entries()).ref
+        if (referral) {
+            localStorage.setItem("refAddress", referral);
+        }
+
+    }, [searchParams])
+
     return (
         <main className={s.landing}>
+            <Web3Modal explorerRecommendedWalletIds={[
+                'c57ca95b47569778a828d19178114f4db188b89b763c899ba0be274e97267d96',
+                '4622a2b2d6af1c9844944291e5e7351a6aa24cd7b23099efac1b2fd875da31a0'
+            ]} projectId={projectId} ethereumClient={ethereumClient} />
             <section className={s.landing__intro}>
                 <div className={s.landing__intro__text}>
                     <h1>
@@ -157,6 +192,12 @@ export const LandingPage = () => {
                 <p className={s.landing__stages__description}>Launching the platform is just the first first step in
                     creating a decentralized token staking ecosystem. And the first users of our platform will receive
                     their privileges.</p>
+            </section>
+
+            <section className={s.landing__deposit_block}>
+                <h3>Staking calculator</h3>
+                <p className={s.landing__deposit_block__description}>You can already calculate the efficiency and profitability of BUSD staking on our platform. Your staking profit will be accrued every minute, and the withdrawal is not limited in any way</p>
+                <DepositBlock/>
             </section>
 
             <section className={s.landing__us}>

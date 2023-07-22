@@ -23,7 +23,6 @@ export const ApplicationLayout = () => {
   const { isDisconnected } = useAccount()
 
   useEffect(() => {
-    return
     if (!!redirectTo) {
       const path = redirectTo
       dispatch(ApplicationActionCreator.setRedirectTo(null))
@@ -32,14 +31,12 @@ export const ApplicationLayout = () => {
   }, [redirectTo])
 
   useEffect(() => {
-    return
     if (isDisconnected) {
       dispatch(AccountActionCreator.resetUserInfo())
     }
   }, [isDisconnected])
 
   useEffect(() => {
-    return
     if (!walletAddress) {
       navigate(routerBook.main)
     }

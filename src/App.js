@@ -14,14 +14,12 @@ import { Toastify } from "./components/Toastify/Toastify";
 
 
 const App = () => {
-
   const dispatch = useDispatch()
   const { walletAddress, isNeedToUpdate, notCorrectChain, redirectTo, toastData } = useSelector(state => state.applicationReducer)
   const [seconds, setSeconds] = useState(0)
   const [wagmiConfig, setWagmiConfig] = useState()
   const [ethereumClient, setEthereumClient] = useState()
   const [projectId, setProjectId] = useState()
-
 
   useMemo(() => {
     const { wagmiConfig, ethereumClient, projectId } = initWagmi()
@@ -32,7 +30,6 @@ const App = () => {
   }, [])
 
   useEffect(() => {
-    return
     let interval
     interval = setInterval(() => {
       if (!seconds) {
@@ -56,7 +53,6 @@ const App = () => {
   }, [seconds])
 
   useEffect(() => {
-    return
     if (isNeedToUpdate) {
       dispatch(AccountActionCreator.getContractInfo())
       if (!!walletAddress) {
@@ -75,7 +71,6 @@ const App = () => {
     }
   }, [walletAddress, notCorrectChain])
   useEffect(() => {
-    return
     // Function to handle wallet change event
     const handleAccountsChanged = (accounts) => {
       dispatch(ApplicationActionCreator.setWalletAddress(accounts[0]))
@@ -90,9 +85,7 @@ const App = () => {
 
       if (chainId !== Config().CHAIN_ID) {
         dispatch(ApplicationActionCreator.setNotCorrectChain(false))
-        return
       } else dispatch(ApplicationActionCreator.setNotCorrectChain(true))
-
     }
 
 

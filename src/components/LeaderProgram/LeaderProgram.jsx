@@ -9,7 +9,7 @@ export const LeaderProgram = ({ disableDescription = false }) => {
 
   const { refTurnover } = useSelector(store => store.accountReducer.userInfo)
   const { rewards, turnover } = useSelector(store => store.accountReducer.leaderProgressData)
-  const [userLevel, setUserLevel] = useState(0)
+  const [userLevel, setUserLevel] = useState(7)
   const [totalTurnover, setTotalTurnover] = useState(0)
 
   const getLevelData = () => {

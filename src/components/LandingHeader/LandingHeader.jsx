@@ -7,10 +7,12 @@ import {BiLogoTelegram, BiSolidWallet} from "react-icons/bi";
 import {IoDocumentText} from "react-icons/io5";
 import {HiClipboardDocumentList} from "react-icons/hi2";
 import {useScrollDirection} from "../../hooks/useScrollDirection";
-import {useEffect, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
+import {useSelector} from "react-redux";
 
-export const LandingHeader = () => {
+export const LandingHeader = ({signInButtonClickHandler}) => {
     const scrollDirection = useScrollDirection()
+    const { walletAddress } = useSelector(state => state.applicationReducer)
     const [isHeaderTransparent, setIsHeaderTransparent] = useState(true);
 
     useEffect(() => {
@@ -41,7 +43,7 @@ export const LandingHeader = () => {
                 <a href={'#'}><HiClipboardDocumentList/> Audit</a>
                 <a href={'#'}><BiLogoTelegram/> Telegram</a>
             </nav>
-            <button className={s.header__wallet}><BiSolidWallet color={'#AA1EFD'}/>Connect Wallet</button>
+            <button onClick={signInButtonClickHandler} className={s.header__wallet}><BiSolidWallet color={'#AA1EFD'}/>{walletAddress ? 'Open App' : 'Connect Wallet'}</button>
         </header>
     )
 }
