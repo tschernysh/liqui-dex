@@ -56,19 +56,12 @@ export const ApplicationLayout = () => {
   return (
     <>
 
-      <main className={s.app}>
-        <section className={s.app__body}>
-          <LandingHeader />
-          <div className={s.app__body__content_wrapper}>
-            <div className={s.app__body__content_wrapper__content}>
-              <ApplicationTabs />
-              <ApplicationAffiliate />
-            </div>
-          </div>
+      <LandingHeader />
+      <ApplicationTabs />
+      <Outlet />
 
-        </section>
-      </main>
-      {/*<LandingFooter />*/}
+
+      <LandingFooter />
     </>
   )
 }

@@ -2,6 +2,10 @@ import s from './ApplicationAffiliate.module.scss'
 import affiliateIcon from 'media/img/affiliate.png'
 import Copy from 'media/img/copy.png'
 import Person from 'media/img/person.png'
+import { useSelector } from 'react-redux'
+import Config from 'config/index'
+import { useContext, useMemo } from 'react'
+import { ToastifyContext } from 'applicationContext'
 
 const affiliateData = [
   { percent: '5' },
@@ -13,6 +17,32 @@ const affiliateData = [
 
 
 export const ApplicationAffiliate = () => {
+
+  const { structure, refTurnover } = useSelector(state => state.accountReducer.userInfo)
+
+  const baseUrl = Config().BASE_URL;
+  const { deposits } = useSelector(store => store.accountReducer.userInfo)
+
+  const walletAddress = useSelector(store => store.applicationReducer.walletAddress)
+  const defaultReferrer = useSelector(store => store.applicationReducer.defaultReferrer)
+  const upline = useSelector(store => store.accountReducer.userInfo.upline)
+  const referrer = upline || localStorage.getItem('refAddress') || defaultReferrer
+
+  const { setToasifyData } = useContext(ToastifyContext)
+
+  const referralUrl = useMemo(() => {
+    return `${baseUrl}${walletAddress}`
+  }, [walletAddress, deposits])
+
+  const copyReferralUrlToClipboard = () => {
+    navigator.clipboard.writeText(referralUrl)
+
+    setToasifyData({
+      text: 'The referral link has been copied!',
+      type: 'success',
+      duration: 3000
+    })
+  }
 
   return (
     <div className={s.affiliate}>
@@ -32,11 +62,11 @@ export const ApplicationAffiliate = () => {
                 </div>
                 <div className={s.landing__affiliate__tiles__tile__turnover}>
                   <p>BUSD</p>
-                  <span>1 000</span>
+                  <span>{refTurnover[index]}</span>
                 </div>
                 <div className={s.landing__affiliate__tiles__tile__refs}>
                   <img src={Person} />
-                  <span>556</span>
+                  <span>{structure[index]}</span>
                 </div>
                 <img src={affiliateIcon} className={s.landing__affiliate__tiles__tile__affiliate} alt={`affiliate${index + 1}`} />
               </div>
@@ -48,14 +78,14 @@ export const ApplicationAffiliate = () => {
         <div className={s.tile}>
           <span>Your Referral Link</span>
           <div>
-            <a disable>0x40f6F0c0BF3c....771B036c516973145</a>
-            <img src={Copy} />
+            <a disable>{walletAddress.slice(0, 15)}...{walletAddress.slice(-15)}</a>
+            <img onClick={copyReferralUrlToClipboard} src={Copy} />
           </div>
         </div>
         <div className={s.tile}>
           <span>Your Upliner</span>
           <div>
-            <a disable>0x40f6F0c0BF3c....771B036c516973145</a>
+            <a disable>{referrer.slice(0, 15)}...{referrer.slice(-15)}</a>
           </div>
         </div>
       </div>

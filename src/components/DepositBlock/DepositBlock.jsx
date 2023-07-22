@@ -8,7 +8,7 @@ import BNB from 'media/img/bnb.png'
 import { ReactComponent as Edit } from 'media/img/edit.svg'
 
 const config = {
-  min: 10,
+  min: 7,
   max: 33
 }
 
@@ -98,11 +98,11 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
                   style={{ '--range-percent-width': `${((rangeValue - config.min) / (config.max - config.min)) * 100}%` }}
                   className={s.deposit__selectors__range_indicator} />
                 <input onMouseOver={onInputHover} onMouseLeave={onInputHoverLeft} name={'period-selector'}
-                  value={rangeValue} step={1} type={"range"} min={10} max={33} />
+                  value={rangeValue} step={1} type={"range"} min={config.min} max={config.max} />
               </label>
               <div className={s.deposit__selectors__range_selector__period_labels}>
-                <span>10 days</span>
-                <span>33 days</span>
+                <span>{config.min} days</span>
+                <span>{config.max} days</span>
               </div>
             </div>
 
@@ -161,28 +161,28 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
               <p>Daily ROI</p>
               <div>
                 <img src={BNB} alt="" />
-                <span>9.55%</span>
+                <span>{(depositAmount * ((120 + (rangeValue - config.min) * 5) / 100) / rangeValue / 10).toFixed(2)}%</span>
               </div>
             </div>
             <div className={s.deposit__tile}>
-              <p>Daily ROI</p>
+              <p>Real Daily Profit:</p>
               <div>
                 <img src={BNB} alt="" />
-                <span>9.55%</span>
+                <span>{((depositAmount * (120 + (rangeValue - config.min) * 5) / 100) / rangeValue).toFixed(2)}</span>
               </div>
             </div>
             <div className={s.deposit__tile}>
-              <p>Daily ROI</p>
+              <p>Total profit:</p>
               <div>
                 <img src={BNB} alt="" />
-                <span>9.55%</span>
+                <span className={s.bright}>{120 + (rangeValue - config.min) * 5 + '%'}</span>
               </div>
             </div>
             <div className={s.deposit__tile}>
-              <p>Daily ROI</p>
+              <p>In {rangeValue} days will earn:</p>
               <div>
                 <img src={BNB} alt="" />
-                <span>9.55%</span>
+                <span className={s.bright} >{(depositAmount * (120 + (rangeValue - config.min) * 5) / 100).toFixed(2)} BUSD</span>
               </div>
             </div>
             {/*             
@@ -198,6 +198,6 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
       </div>
 
 
-    </div>
+    </div >
   )
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import s from './ApplicationTabs.module.scss'
+import { Link } from 'react-router-dom'
 
 const tabs = [
   'dashboard',
@@ -21,11 +22,11 @@ export const ApplicationTabs = () => {
   return (
     <div className={s.tab}>
       <div onClick={e => changeTab(e.target.id)} className={s.tab__element}>
-        <a id='dashboard'>Dashboard</a>
-        <a id='bonuses'>Bonuses</a>
-        <a id='' disabled>Staking LDP</a>
-        <a id='' disabled>Staking Pools</a>
-        <a id='' disabled>LiquiDex Wallet</a>
+        <Link to={'dashboard'} id='dashboard'>Dashboard</Link>
+        <Link to={'bonuses'} id='bonuses'>Bonuses</Link>
+        <Link id='' disabled>Staking LDP</Link>
+        <Link id='' disabled>Staking Pools</Link>
+        <Link id='' disabled>LiquiDex Wallet</Link>
       </div>
       <span style={
         {

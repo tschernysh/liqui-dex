@@ -1,8 +1,12 @@
 .tab{
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
   .tab__element {
     display: flex;
     pointer-events: none;
     a{
+      text-decoration: none;
       flex: 1 1 100%;
       text-align: center;
       color: white;

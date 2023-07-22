@@ -3,6 +3,7 @@
   background: linear-gradient(81deg, #0F1113 0%, #16191C 100%);
   box-shadow: 0px -1.950331211090088px 0px 0px rgba(0, 0, 0, 0.16) inset, 0px 1.950331211090088px 0px 0px rgba(255, 255, 255, 0.10) inset;
   padding: 27px 40px 42px;
+  margin-bottom: 180px;
 
   .statistics__wrapper{
     display: flex;
@@ -27,7 +28,7 @@
         flex-direction: column;
         gap: 44px;
         overflow: hidden;
-        flex: 1 1 auto;
+        flex: 1 1 48%;
         svg{
           left: 0;
           bottom: 0;

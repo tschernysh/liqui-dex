@@ -33,6 +33,9 @@ export const ApplicationDeposits = () => {
 }
 
 const DepositTile = ({ hash, timestamp, days, amount, profit }) => {
+
+  const progressPercent = (Date.now() / timestamp) * 100
+
   return (
     <>
       <tr>
@@ -43,7 +46,12 @@ const DepositTile = ({ hash, timestamp, days, amount, profit }) => {
         <td>{timestamp}</td>
         <td>{days}</td>
         <td>{amount}</td>
-        <td>{}</td>
+        <td>
+          <div className={s.progress__bar}>
+            <div style={{ '--progress-width': `${50}%` }}></div>
+            <div></div>
+          </div>
+        </td>
         <td>{profit}</td>
       </tr>
     </>

@@ -1,8 +1,16 @@
 import s from './ApplicationStatistics.module.scss'
 import BNB from 'media/img/bnb.png'
 import { ReactComponent as Wave } from 'media/img/wave.svg'
+import { useSelector } from 'react-redux'
 
 export const ApplicationStatistics = () => {
+
+
+  const { dividents, match_bonus, leader_bonus, payoutOf, deposits, leadBonusReward } = useSelector(state => state.accountReducer.userInfo)
+  const { invested, totalPlayers, totalLeadBonusReward } = useSelector(store => store.accountReducer.contractInfo)
+
+
+
   return (
     <div className={s.statistics}>
       <div className={s.statistics__wrapper}>
@@ -12,28 +20,28 @@ export const ApplicationStatistics = () => {
             <div className={s.statistics__withdraw__tile}>
               <span>Dividents:</span>
               <span>
-                1.14 BUSD
+                {dividents} BUSD
                 <img src={BNB} />
               </span>
             </div>
             <div className={s.statistics__withdraw__tile}>
               <span>Referral reward:</span>
               <span>
-                1.14 BUSD
+                {match_bonus} BUSD
                 <img src={BNB} />
               </span>
             </div>
             <div className={s.statistics__withdraw__tile}>
               <span>Leadership bonuses:</span>
               <span>
-                1.14 BUSD
+                {leader_bonus} BUSD
                 <img src={BNB} />
               </span>
             </div>
           </div>
           <p className={s.available__withdraw}>Available for withdraw</p>
           <div className={s.available__withdraw__amount}>
-            <span>125 BUSD</span>
+            <span>{payoutOf} BUSD</span>
             <hr />
           </div>
           <button>Witdhraw</button>
@@ -44,14 +52,14 @@ export const ApplicationStatistics = () => {
               <p>Total invested</p>
               <div>
                 <img src={BNB} alt="" />
-                <span>100</span>
+                <span>{invested}</span>
               </div>
             </div>
             <div className={s.statistics__tile}>
               <p>Total Referral Reward</p>
               <div>
                 <img src={BNB} alt="" />
-                <span>100</span>
+                <span>{leadBonusReward}</span>
               </div>
               <Wave />
             </div>
@@ -66,7 +74,7 @@ export const ApplicationStatistics = () => {
               <p>Total Leader Bonuses</p>
               <div>
                 <img src={BNB} alt="" />
-                <span>100</span>
+                <span>{totalLeadBonusReward}</span>
               </div>
             </div>
           </div>

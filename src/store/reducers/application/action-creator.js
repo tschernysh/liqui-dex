@@ -91,7 +91,6 @@ export const ApplicationActionCreator = {
         bnbBalance = bnbBalance.toString()
         bnbBalance = +web3.utils.fromWei(bnbBalance, 'ether')
       } catch (error) {
-        alert(error)
         console.log(error)
         return
       }
@@ -116,7 +115,6 @@ export const ApplicationActionCreator = {
         tokenBalance = tokenBalance.toString()
         tokenBalance = +web3.utils.fromWei(tokenBalance, 'ether')
       } catch (error) {
-        alert(error)
         console.log(error)
         return
       }
