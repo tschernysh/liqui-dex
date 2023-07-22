@@ -35,6 +35,7 @@ import affiliateIcon from 'media/img/affiliate.png'
 import {LeaderProgram} from "../../components/LeaderProgram/LeaderProgram";
 
 import {ReactComponent as Path} from 'media/img/path.svg'
+import {DepositBlock} from "../../components/DepositBlock/DepositBlock";
 
 const stages = [{
     text: 'Platform launch',
@@ -157,6 +158,12 @@ export const LandingPage = () => {
                 <p className={s.landing__stages__description}>Launching the platform is just the first first step in
                     creating a decentralized token staking ecosystem. And the first users of our platform will receive
                     their privileges.</p>
+            </section>
+
+            <section className={s.landing__deposit_block}>
+                <h3>Staking calculator</h3>
+                <p className={s.landing__deposit_block__description}>You can already calculate the efficiency and profitability of BUSD staking on our platform. Your staking profit will be accrued every minute, and the withdrawal is not limited in any way</p>
+                <DepositBlock/>
             </section>
 
             <section className={s.landing__us}>
