@@ -1,8 +1,14 @@
+@import '../../misc/mixin.scss';
+
 .landing {
   overflow-x: visible;
 
   section {
     padding: 50px;
+
+    @include for-specific-size(320px) {
+      padding: 10px;
+    }
   }
 
   &__intro {
@@ -21,15 +27,19 @@
         line-height: 130%;
         color: white;
 
+        @include for-specific-size(320px) {
+          text-align: center;
+          font-size: 36px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 35.5px;
+        }
+
         span {
           background: rgb(65,62,250);
           background: linear-gradient(90deg, rgba(65,62,250,1) 0%, rgba(117,46,252,1) 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          font-size: 80px;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 130%;
         }
       }
 
@@ -54,8 +64,27 @@
       }
     }
 
-    &__image {
+    &__image_desktop {
       flex: 1 1 auto;
+
+      @include for-specific-size(320px) {
+        display: none;
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &__image_mobile {
+      display: none;
+      flex: 1 1 auto;
+
+      @include for-specific-size(320px) {
+        display: block;
+      }
+
       img {
         height: 100%;
         width: 100%;

@@ -111,7 +111,6 @@ export const LandingPage = () => {
 
 
     useEffect(() => {
-        console.log(address, data)
         if (!!data && !isDisconnected) {
             dispatch(ApplicationActionCreator.setWeb3(data))
             dispatch(ApplicationActionCreator.connectConnectWallet())
@@ -137,6 +136,9 @@ export const LandingPage = () => {
                     <h1>
                         Innovative <span>Staking</span> Platform<span>.</span>
                     </h1>
+                    <div className={s.landing__intro__image_mobile}>
+                        <img src={landingIntoBanner} alt={'landingIntoBanner'}/>
+                    </div>
                     <div className={s.landing__intro__text__description}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="38" viewBox="0 0 40 38" fill="none">
                             <path
@@ -148,7 +150,7 @@ export const LandingPage = () => {
                     </div>
                     <button>Become a member</button>
                 </div>
-                <div className={s.landing__intro__image}>
+                <div className={s.landing__intro__image_desktop}>
                     <img src={landingIntoBanner} alt={'landingIntoBanner'}/>
                 </div>
             </section>

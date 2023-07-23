@@ -41,14 +41,14 @@ export const LandingFooter = () => {
           <div className={s.tile}>
             <span>Your Referral Link</span>
             <div>
-              <a disable>{walletAddress.slice(0, 15)}...{walletAddress.slice(-15)}</a>
+              <a disable>{walletAddress?.slice(0, 15)}...{walletAddress?.slice(-15)}</a>
               <img onClick={copyReferralUrlToClipboard} src={Copy} />
             </div>
           </div>
           <div className={s.tile}>
             <span>Your Upliner</span>
             <div>
-              <a disable>{referrer.slice(0, 15)}...{referrer.slice(-15)}</a>
+              <a disable>{referrer?.slice(0, 15)}...{referrer?.slice(-15)}</a>
             </div>
           </div>
         </div>
