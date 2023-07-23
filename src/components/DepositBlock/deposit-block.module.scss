@@ -5,22 +5,22 @@
   position: relative;
   margin: 126px 0 140px;
   padding: 40px;
-  z-index: 2;
   border-radius: 29.255px;
   background: linear-gradient(315deg, #0F1113 0%, #212528 100%);
   box-shadow: 0px -1.950331211090088px 0px 0px rgba(0, 0, 0, 0.16) inset, 0px 1.950331211090088px 0px 0px rgba(255, 255, 255, 0.10) inset;
-  // &:after{
-  //   content: '';
-  //   position: absolute;
-  //   width: 110%;
-  //   height: 110%;
-  //   left: 0;
-  //   top: 0;
-  //   z-index: 1;
-  //   border-radius: 39.007px;
-  //   background: #161818;
-  //   box-shadow: 0px 3.900662422180176px 0px 0px rgba(0, 0, 0, 0.10) inset, 0px -1.950331211090088px 0px 0px rgba(255, 255, 255, 0.16) inset;
-  // }
+  &:before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    height: calc(100% + 20px);
+    width: calc(100% + 20px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 39.007px;
+    background: #161818;
+    box-shadow: 0px 3.9006624222px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px -1.9503312111px 0px 0px rgba(255, 255, 255, 0.16) inset;
+  }
   .deposit__wrapper{
     display: flex;
     justify-content: space-between;

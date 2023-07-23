@@ -4,7 +4,21 @@
   background: linear-gradient(315deg, #0F1113 0%, #212528 100%);
   box-shadow: 0px -1.950331211090088px 0px 0px rgba(0, 0, 0, 0.16) inset, 0px 1.950331211090088px 0px 0px rgba(255, 255, 255, 0.10) inset;
   padding: 12px 15px 36px 55px;
-   
+  position: relative;
+  &:before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    height: calc(100% + 20px);
+    width: calc(100% + 20px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 39.007px;
+    background: #161818;
+    box-shadow: 0px 3.9006624222px 0px 0px rgba(0, 0, 0, 0.1) inset, 0px -1.9503312111px 0px 0px rgba(255, 255, 255, 0.16) inset;
+  }
+
   h1{
     color: #fff;
     font-size: 32px;

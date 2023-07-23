@@ -15,7 +15,7 @@ export const ApplicationStatistics = () => {
     <div className={s.statistics}>
       <div className={s.statistics__wrapper}>
         <div className={s.statistics__container}>
-          <p className={s.title}>Personal Statisctics</p>
+          <p className={s.title}>Personal Statistics</p>
           <div className={s.statistics__withdraw}>
             <div className={s.statistics__withdraw__tile}>
               <span>Dividents:</span>
