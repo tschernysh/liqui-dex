@@ -1,3 +1,17 @@
+@import '../../misc/mixin.scss';
+@import '../../misc/variables.scss';
+
+.title__mob {
+  display: none;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-align: center;
+  @include for-specific-size(900px){
+    display: block;
+  }
+}
 .statistics {
   border-radius: 29.255px;
   background: linear-gradient(81deg, #0F1113 0%, #16191C 100%);
@@ -5,6 +19,10 @@
   padding: 27px 40px 42px;
   margin-bottom: 180px;
   position: relative;
+  @include for-specific-size(900px) {
+    margin: 30px 20px 50px;
+    padding: 24px 11px 30px;
+  }
   &:before {
     z-index: -1;
     content: "";
@@ -24,6 +42,10 @@
     justify-content: space-between;
     align-items: center;
     gap: 90px;
+    @include for-specific-size(900px){
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
     .statistics__info{
       border-radius: 8px;
       display: flex;
@@ -73,6 +95,9 @@
     }
     .statistics__container{
       flex: 1 1 100%;
+      @include for-specific-size(900px){
+        width: 100%;
+      }
       button{
         padding: 20px 0;
         width: 100%;
@@ -85,6 +110,9 @@
         font-size: 18px;
         font-weight: 700;
         text-transform: uppercase;
+        @include for-specific-size(900px){
+          padding: 11px 0;
+        }
       }
       .available__withdraw{
         color: rgba(255, 255, 255, 0.59);
@@ -113,6 +141,9 @@
         font-size: 32px;
         font-weight: 700;
         margin-bottom: 18px;
+        @include for-specific-size(900px){
+          display: none;
+        }
       }
 
       .statistics__withdraw {
@@ -121,6 +152,9 @@
         gap: 8px;
         padding-left: 20px;
         flex-direction: column;
+        @include for-specific-size(900px){
+          padding-left: 0;
+        }
         .statistics__withdraw__tile{
           display: flex;
           align-items: center;
@@ -128,12 +162,17 @@
           border-radius: 8px;
           background-color: #202528;
           padding: 7px 13px 9px 20px;
-
+          @include for-specific-size(900px){
+            background: #131619;
+          }
           span{
             &:first-child{
               color: rgba(255, 255, 255, 0.75);
               font-size: 14px;
               font-weight: 400;
+              @include for-specific-size(900px){
+                font-size: 10px;
+              }
             }
             &:last-child{
               display: flex;
@@ -142,6 +181,9 @@
               color: #fff;
               font-size: 22px;
               font-weight: 800;
+              @include for-specific-size(900px){
+                font-size: 10px;
+              }
             }
           }
         }

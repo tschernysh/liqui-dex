@@ -12,75 +12,78 @@ export const ApplicationStatistics = () => {
 
 
   return (
-    <div className={s.statistics}>
-      <div className={s.statistics__wrapper}>
-        <div className={s.statistics__container}>
-          <p className={s.title}>Personal Statistics</p>
-          <div className={s.statistics__withdraw}>
-            <div className={s.statistics__withdraw__tile}>
-              <span>Dividents:</span>
-              <span>
-                {dividents} BUSD
-                <img src={BNB} />
-              </span>
+    <>
+      <p className={s.title__mob}>Personal Statistics</p>
+      <div className={s.statistics}>
+        <div className={s.statistics__wrapper}>
+          <div className={s.statistics__container}>
+            <p className={s.title}>Personal Statistics</p>
+            <div className={s.statistics__withdraw}>
+              <div className={s.statistics__withdraw__tile}>
+                <span>Dividents:</span>
+                <span>
+                  {dividents} BUSD
+                  <img src={BNB} />
+                </span>
+              </div>
+              <div className={s.statistics__withdraw__tile}>
+                <span>Referral reward:</span>
+                <span>
+                  {match_bonus} BUSD
+                  <img src={BNB} />
+                </span>
+              </div>
+              <div className={s.statistics__withdraw__tile}>
+                <span>Leadership bonuses:</span>
+                <span>
+                  {leader_bonus} BUSD
+                  <img src={BNB} />
+                </span>
+              </div>
             </div>
-            <div className={s.statistics__withdraw__tile}>
-              <span>Referral reward:</span>
-              <span>
-                {match_bonus} BUSD
-                <img src={BNB} />
-              </span>
+            <p className={s.available__withdraw}>Available for withdraw</p>
+            <div className={s.available__withdraw__amount}>
+              <span>{payoutOf} BUSD</span>
+              <hr />
             </div>
-            <div className={s.statistics__withdraw__tile}>
-              <span>Leadership bonuses:</span>
-              <span>
-                {leader_bonus} BUSD
-                <img src={BNB} />
-              </span>
-            </div>
+            <button>Witdhraw</button>
           </div>
-          <p className={s.available__withdraw}>Available for withdraw</p>
-          <div className={s.available__withdraw__amount}>
-            <span>{payoutOf} BUSD</span>
-            <hr />
-          </div>
-          <button>Witdhraw</button>
-        </div>
-        <div className={s.statistics__container}>
-          <div className={s.statistics__info}>
-            <div className={s.statistics__tile}>
-              <p>Total invested</p>
-              <div>
-                <img src={BNB} alt="" />
-                <span>{invested}</span>
+          <div className={s.statistics__container}>
+            <div className={s.statistics__info}>
+              <div className={s.statistics__tile}>
+                <p>Total invested</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>{invested}</span>
+                </div>
               </div>
-            </div>
-            <div className={s.statistics__tile}>
-              <p>Total Referral Reward</p>
-              <div>
-                <img src={BNB} alt="" />
-                <span>{leadBonusReward}</span>
+              <div className={s.statistics__tile}>
+                <p>Total Referral Reward</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>{leadBonusReward}</span>
+                </div>
+                <Wave />
               </div>
-              <Wave />
-            </div>
-            <div className={s.statistics__tile}>
-              <p>Total Withdrawal</p>
-              <div>
-                <img src={BNB} alt="" />
-                <span>100</span>
+              <div className={s.statistics__tile}>
+                <p>Total Withdrawal</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>100</span>
+                </div>
               </div>
-            </div>
-            <div className={s.statistics__tile}>
-              <p>Total Leader Bonuses</p>
-              <div>
-                <img src={BNB} alt="" />
-                <span>{totalLeadBonusReward}</span>
+              <div className={s.statistics__tile}>
+                <p>Total Leader Bonuses</p>
+                <div>
+                  <img src={BNB} alt="" />
+                  <span>{totalLeadBonusReward}</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
