@@ -21,16 +21,10 @@ export const ApplicationDeposits = () => {
           <td>Profit</td>
         </tr>
         {
-          deposits.map((el, index) => {
-            if (index > currentPage * 10) {
-              return null
-            } else {
-              return <DepositTile {...el} />
-            }
-          })
+          deposits.map(el => <DepositTile {...el} />)
         }
       </table>
-      <button onClick={() => setCurrentPage(currentPage + 1)}>
+      <button>
         <ShowMore />
         <span>Show more</span>
       </button>
