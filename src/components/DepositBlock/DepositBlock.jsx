@@ -8,7 +8,7 @@ import BNB from 'media/img/bnb.png'
 import { ReactComponent as Edit } from 'media/img/edit.svg'
 
 const config = {
-  min: 7,
+  min: 10,
   max: 33
 }
 

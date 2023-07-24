@@ -1,45 +1,65 @@
+@import '../../misc/mixin.scss';
+
 .tab{
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-  .tab__element {
-    display: flex;
-    pointer-events: none;
-    a{
-      text-decoration: none;
-      flex: 1 1 100%;
-      text-align: center;
-      color: white;
-      pointer-events: none;
-      font-weight: 600;
-      font-size: 20px;
-      pointer-events: all;
-      cursor: pointer;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  @include for-specific-size(1500px) {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  .tab__wrapper {
+    @include for-specific-size(900px) {
+      width: 140%;
     }
 
-    a[disabled] {
-      color: #5F6574;
-      pointer-events: none;
+    @include for-specific-size(600px) {
+      width: 200%;
     }
-  }
-  span{
-    display: block;
-    width: 100%;
-    height: 7px;
-    background: rgba(255, 255, 255, 0.10);
-    border-radius: 8px;
-    margin-top: 7px;
-    position: relative;
-    &:after{
-      transition: left 0.3s;
-      width: var(--marker-width);
-      content: ' ';
-      height: 100%;
-      background: var(--3, linear-gradient(111deg, #423EFA 0%, #B61AFF 100%));
-      position: absolute;
+    @include for-specific-size(400px) {
+      width: 250%;
+    }
+    .tab__element {
+      display: flex;
+      pointer-events: none;
+      a{
+        white-space: nowrap;
+        text-decoration: none;
+        flex: 1 1 100%;
+        text-align: center;
+        color: white;
+        pointer-events: none;
+        font-weight: 600;
+        font-size: 20px;
+        pointer-events: all;
+        cursor: pointer;
+      }
+
+      a[disabled] {
+        color: #5F6574;
+        pointer-events: none;
+      }
+    }
+    span{
+      display: block;
+      width: 100%;
+      height: 7px;
+      background: rgba(255, 255, 255, 0.10);
       border-radius: 8px;
-      top: 0;
-      left: var(--marker-left);
+      margin-top: 7px;
+      position: relative;
+      &:after{
+        transition: left 0.3s;
+        width: var(--marker-width);
+        content: ' ';
+        height: 100%;
+        background: var(--3, linear-gradient(111deg, #423EFA 0%, #B61AFF 100%));
+        position: absolute;
+        border-radius: 8px;
+        top: 0;
+        left: var(--marker-left);
+      }
     }
   }
 }

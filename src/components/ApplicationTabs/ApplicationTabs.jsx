@@ -21,18 +21,20 @@ export const ApplicationTabs = () => {
 
   return (
     <div className={s.tab}>
-      <div onClick={e => changeTab(e.target.id)} className={s.tab__element}>
-        <Link to={'dashboard'} id='dashboard'>Dashboard</Link>
-        <Link to={'bonuses'} id='bonuses'>Bonuses</Link>
-        <Link id='' disabled>Staking LDP</Link>
-        <Link id='' disabled>Staking Pools</Link>
-        <Link id='' disabled>LiquiDex Wallet</Link>
+      <div className={s.tab__wrapper}>
+        <div onClick={e => changeTab(e.target.id)} className={s.tab__element}>
+          <Link to={'dashboard'} id='dashboard'>Dashboard</Link>
+          <Link to={'bonuses'} id='bonuses'>Bonuses</Link>
+          <Link id='' disabled>Staking LDP</Link>
+          <Link id='' disabled>Staking Pools</Link>
+          <Link id='' disabled>LiquiDex Wallet</Link>
+        </div>
+        <span style={
+          {
+            '--marker-left': `${tabs.findIndex(t => t === activeTab) * 100 / tabs.length}%`,
+            '--marker-width': `${100 / tabs.length}%`
+          }}></span>
       </div>
-      <span style={
-        {
-          '--marker-left': `${tabs.findIndex(t => t === activeTab) * 100 / tabs.length}%`,
-          '--marker-width': `${100 / tabs.length}%`
-        }}></span>
     </div>
   )
 }
