@@ -44,6 +44,8 @@ export const ApplicationAffiliate = () => {
     })
   }
 
+  const sliceAmount = window.innerWidth <= 640 ? 10 : 15
+
   return (
     <div className={s.affiliate}>
       <section className={s.landing__affiliate}>
@@ -78,14 +80,14 @@ export const ApplicationAffiliate = () => {
         <div className={s.tile}>
           <span>Your Referral Link</span>
           <div>
-            <a disable>{walletAddress.slice(0, 15)}...{walletAddress.slice(-15)}</a>
+            <a disable>{walletAddress.slice(0, sliceAmount)}...{walletAddress.slice(-sliceAmount)}</a>
             <img onClick={copyReferralUrlToClipboard} src={Copy} />
           </div>
         </div>
         <div className={s.tile}>
           <span>Your Upliner</span>
           <div>
-            <a disable>{referrer.slice(0, 15)}...{referrer.slice(-15)}</a>
+            <a disable>{referrer.slice(0, sliceAmount)}...{referrer.slice(-sliceAmount)}</a>
           </div>
         </div>
       </div>

@@ -159,6 +159,12 @@
       display: flex;
       flex-direction: row;
       gap: 80px;
+
+      @include for-specific-size(640px) {
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+      }
       .tile {
           flex: 1 1 100%;
           display: flex;
