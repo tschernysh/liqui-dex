@@ -304,6 +304,7 @@
       margin-right: 50px;
       display: flex;
       column-gap: 10px;
+      justify-content: space-between;
 
       @include for-specific-size(640px) {
         flex-direction: column;
@@ -353,7 +354,6 @@
           font-weight: 400;
           line-height: 150%;
           padding: 24px;
-
 
           span {
             margin-top: -5px;

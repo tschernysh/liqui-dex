@@ -79,7 +79,7 @@ const DepositTile = ({ tarif, time, amount, profit }) => {
             <div></div>
           </div>
         </td>
-        <td>{(amount * (120 + (tarif) * 5) / 100).toFixed(2)}</td>
+        <td>{(amount * (120 + (tarif - 10) * 5) / 100).toFixed(2)}</td>
       </tr>
     </>
   )

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 export const ApplicationStatistics = () => {
 
 
-  const { dividents, match_bonus, leader_bonus, payoutOf, deposits, leadBonusReward } = useSelector(state => state.accountReducer.userInfo)
+  const { dividents, match_bonus, leader_bonus, payoutOf, deposits, leadBonusReward, total_invested } = useSelector(state => state.accountReducer.userInfo)
   const { invested, totalPlayers, totalLeadBonusReward } = useSelector(store => store.accountReducer.contractInfo)
 
 
@@ -54,7 +54,7 @@ export const ApplicationStatistics = () => {
                 <p>Total invested</p>
                 <div>
                   <img src={BNB} alt="" />
-                  <span>{invested}</span>
+                  <span>{total_invested}</span>
                 </div>
               </div>
               <div className={s.statistics__tile}>
