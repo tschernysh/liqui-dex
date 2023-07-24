@@ -21,7 +21,7 @@ export const ApplicationDeposits = () => {
           <td>Profit</td>
         </tr>
         {
-          deposits.map((el, index) => {
+          [...deposits].reverse().map((el, index) => {
             if (index > currentPage * 10) {
               return null
             } else {
@@ -40,7 +40,22 @@ export const ApplicationDeposits = () => {
 
 const DepositTile = ({ tarif, time, amount, profit }) => {
 
-  const progressPercent = (Date.now() / time) * 100 > 100 ? 100 : (Date.now() / time) * 100
+
+  const calcProgressPercent = () => {
+    const start = time * 1000
+    const end = start + tarif * 1000 * 60 * 60 * 24
+
+    const delta = end - start
+
+    let percent = (Date.now() - start) / delta * 100
+
+    if (percent > 100) {
+      percent = 100
+    }
+    return percent
+  }
+
+  console.log(amount, calcProgressPercent())
 
   return (
     <>
@@ -60,7 +75,7 @@ const DepositTile = ({ tarif, time, amount, profit }) => {
         <td>{amount}</td>
         <td>
           <div className={s.progress__bar}>
-            <div style={{ '--progress-width': `${progressPercent}%` }}></div>
+            <div style={{ '--progress-width': `${calcProgressPercent()}%` }}></div>
             <div></div>
           </div>
         </td>
