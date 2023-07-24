@@ -9,11 +9,13 @@ import {HiClipboardDocumentList} from "react-icons/hi2";
 import {useScrollDirection} from "../../hooks/useScrollDirection";
 import {useCallback, useEffect, useState} from "react";
 import {useSelector} from "react-redux";
+import {GiHamburgerMenu} from "react-icons/gi";
 
 export const LandingHeader = ({signInButtonClickHandler}) => {
     const scrollDirection = useScrollDirection()
     const { walletAddress } = useSelector(state => state.applicationReducer)
     const [isHeaderTransparent, setIsHeaderTransparent] = useState(true);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = event => {
@@ -35,15 +37,19 @@ export const LandingHeader = ({signInButtonClickHandler}) => {
     }, []);
 
 
+
+
     return (
         <header  data-transparent={isHeaderTransparent} data-hidden={scrollDirection === 'down'} className={s.header}>
             <Link className={s.header__logo_link} to={routerBook.main}><img src={logo} alt={'logo'}/><p>LiquiDex</p></Link>
-            <nav className={s.header__links}>
+            <button className={s.header__burger_button} onClick={setIsMenuOpen.bind(null, !isMenuOpen)}><GiHamburgerMenu color={'white'}/></button>
+            <nav  onClick={setIsMenuOpen.bind(null, isMenuOpen ? false : isMenuOpen)} data-open={isMenuOpen} className={s.header__links}>
+                <button onClick={signInButtonClickHandler} className={s.header__wallet_mobile}><BiSolidWallet color={'#AA1EFD'}/>{walletAddress ? 'Open App' : 'Connect Wallet'}</button>
                 <a href={'#'}><IoDocumentText/> Smart-contract</a>
                 <a href={'#'}><HiClipboardDocumentList/> Audit</a>
                 <a href={'#'}><BiLogoTelegram/> Telegram</a>
             </nav>
-            <button onClick={signInButtonClickHandler} className={s.header__wallet}><BiSolidWallet color={'#AA1EFD'}/>{walletAddress ? 'Open App' : 'Connect Wallet'}</button>
+            <button onClick={signInButtonClickHandler} className={s.header__wallet_desktop}><BiSolidWallet color={'#AA1EFD'}/>{walletAddress ? 'Open App' : 'Connect Wallet'}</button>
         </header>
     )
 }

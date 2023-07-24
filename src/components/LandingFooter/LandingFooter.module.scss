@@ -1,95 +1,173 @@
 @import '../../misc/mixin.scss';
 
-.footer{
-    background: #0D0D0D;
-    width: 100%;
-    padding: 116px 109px;
+.footer {
+  background: #0D0D0D;
+  width: 100%;
+  padding: 116px 109px;
 
-    @include for-specific-size(320px) {
-        display: none;
+  @include for-specific-size(640px) {
+    padding: 60px 10px 30px 10px;
+  }
+
+  .footer__wrapper {
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .referrals {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+
+    @include for-specific-size(640px) {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
     }
 
-    .footer__wrapper {
-        max-width: 1440px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .referrals{
-        width: 80%;
-        margin: 0 auto;
+    .tile {
+      flex: 1 1 100%;
+      display: flex;
+      flex-direction: column;
+
+      span {
+        color: rgba(255, 255, 255, 0.59);
+        font-size: 16px;
+        font-weight: 400;
+
+      }
+
+      div {
+        border: 2px solid rgba(255, 255, 255, 0.15);
+        border-radius: 8px;
+        padding: 20px 25px;
         display: flex;
-        flex-direction: row;
-        gap: 80px;
-        .tile {
-            flex: 1 1 100%;
-            display: flex;
-            flex-direction: column;
-            span {
-               color: rgba(255, 255, 255, 0.59);
-               font-size: 16px;
-               font-weight: 400;
+        justify-content: space-between;
+        align-items: center;
 
-            }
-            div{
-                border: 2px solid rgba(255, 255, 255, 0.15);
-                border-radius: 8px;
-                padding: 20px 25px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                img{
-                    margin-right: -15px;
-                }
-
-                a{
-                    font-size: 18px;
-                    color: #fff;
-                    font-weight: 600;
-                }
-            }
+        img {
+          margin-right: -15px;
         }
-    }    
-    .bottom {
-        margin-top: 65px;
+
+        a {
+          font-size: 18px;
+          color: #fff;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .bottom {
+    margin-top: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include for-specific-size(640px) {
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: center;
+      row-gap: 30px;
+      margin-top: 35px;
+    }
+
+    &__folow_us {
+      @include for-specific-size(640px) {
+        display: flex;
+        flex-direction: row !important;
+        a {
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: normal;
+
+        }
+      }
+    }
+
+
+    &__image_mobile {
+      display: none;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 40px;
+
+      @include for-specific-size(640px) {
+        display: flex;
+      }
+    }
+
+    &__image_desktop {
+      @include for-specific-size(640px) {
+        display: none;
+      }
+
+      @include for-specific-size(640px) {
+        flex-direction: column;
+      }
+    }
+
+    &__login {
+      @include for-specific-size(640px) {
+        width: 100%;
+      }
+
+      button {
+        @include for-specific-size(640px) {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+    }
+
+    div {
+      flex: 1 1 100%;
+
+      a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+
+        span {
+          color: rgba(255, 255, 255, 0.75);
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+
+      button {
+        background: rgb(31, 31, 31);
+        padding: 16px 36px;
+        border: none;
+        border-radius: 8px;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        div{
-            flex: 1 1 100%;
-            a{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 16px;
-                span{
-                    color: rgba(255, 255, 255, 0.75);
-                    font-weight: 500;
-                    font-size: 14px;
-                }
-            }
-            button {
-                background: rgb(31, 31, 31);
-                padding: 16px 36px;
-                border: none ;
-                border-radius: 8px;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                img{
-                    margin-top: -4px;
-                }
-                span{
-                    color: #fff;
-                    font-size: 16px;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                }
-                
-            }
-            &:last-child{
-                display: flex;
-                justify-content: right;
-            }
+        gap: 10px;
+
+        img {
+          margin-top: -4px;
         }
+
+        span {
+          color: #fff;
+          font-size: 16px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+
+      }
+
+      &:last-child {
+        display: flex;
+        justify-content: right;
+      }
     }
+  }
 }
