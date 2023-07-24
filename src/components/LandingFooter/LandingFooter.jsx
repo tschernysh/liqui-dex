@@ -37,6 +37,7 @@ export const LandingFooter = () => {
   return (
     <footer className={s.footer}>
       <div className={s.footer__wrapper}>
+        <img className={s.bottom__image_mobile} src={FullLogo} alt="" />
         <div className={s.referrals}>
           <div className={s.tile}>
             <span>Your Referral Link</span>
@@ -53,15 +54,15 @@ export const LandingFooter = () => {
           </div>
         </div>
         <div className={s.bottom}>
-          <div><img src={FullLogo} alt="" /></div>
+          <div><img className={s.bottom__image_desktop} src={FullLogo} alt="" /></div>
           <div>
-            <a>
+            <a className={s.bottom__folow_us}>
               <span>Follow us</span>
               <img src={Telegram} alt="" />
             </a>
           </div>
-          <div>
-            <button>
+          <div className={s.bottom__login}>
+            <button >
               <img src={Profile} />
               <span>Login</span>
             </button>
