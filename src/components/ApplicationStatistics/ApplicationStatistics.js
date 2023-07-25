@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux'
 export const ApplicationStatistics = () => {
 
 
-  const { dividents, match_bonus, leader_bonus, payoutOf, deposits, leadBonusReward, total_invested } = useSelector(state => state.accountReducer.userInfo)
+  const { dividents, match_bonus, leader_bonus, payoutOf, total_match_bonus, total_withdrawn, deposits, leadBonusReward, total_invested } = useSelector(state => state.accountReducer.userInfo)
   const { invested, totalPlayers, totalLeadBonusReward } = useSelector(store => store.accountReducer.contractInfo)
 
 
@@ -22,7 +22,7 @@ export const ApplicationStatistics = () => {
               <div className={s.statistics__withdraw__tile}>
                 <span>Dividents:</span>
                 <span>
-                  {dividents} BUSD
+                  {payoutOf} BUSD
                   <img src={BNB} />
                 </span>
               </div>
@@ -43,7 +43,7 @@ export const ApplicationStatistics = () => {
             </div>
             <p className={s.available__withdraw}>Available for withdraw</p>
             <div className={s.available__withdraw__amount}>
-              <span>{payoutOf} BUSD</span>
+              <span>{+payoutOf + dividents + match_bonus + leader_bonus} BUSD</span>
               <hr />
             </div>
             <button>Witdhraw</button>
@@ -61,7 +61,7 @@ export const ApplicationStatistics = () => {
                 <p>Total Referral Reward</p>
                 <div>
                   <img src={BNB} alt="" />
-                  <span>{leadBonusReward}</span>
+                  <span>{total_match_bonus}</span>
                 </div>
                 <Wave />
               </div>
@@ -69,7 +69,7 @@ export const ApplicationStatistics = () => {
                 <p>Total Withdrawal</p>
                 <div>
                   <img src={BNB} alt="" />
-                  <span>100</span>
+                  <span>{total_withdrawn}</span>
                 </div>
               </div>
               <div className={s.statistics__tile}>
