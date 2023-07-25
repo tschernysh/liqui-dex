@@ -28,8 +28,8 @@ export const ApplicationLayout = () => {
   const { isDisconnected } = useAccount()
 
   useEffect(() => {
-    console.log(chain)
-    if (chain !== Config().CHAIN_ID) {
+    console.log(chain.id, Config().CHAIN_ID)
+    if (chain.id !== Config().CHAIN_ID) {
       switchNetwork?.(Config().CHAIN_ID)
     }
   }, [chain])
