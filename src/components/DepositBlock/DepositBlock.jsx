@@ -167,7 +167,7 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
                 </div>
               </div>
               <div className={s.deposit__tile}>
-                <p>Real Daily Profit:</p>
+                <p>Daily Profit:</p>
                 <div>
                   <img src={BNB} alt="" />
                   <span>{((depositAmount * (120 + (rangeValue - config.min) * 5) / 100) / rangeValue).toFixed(2)}</span>
