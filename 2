@@ -21,16 +21,10 @@ export const ApplicationDeposits = () => {
           <td>Profit</td>
         </tr>
         {
-          [...deposits].reverse().map((el, index) => {
-            if (index > currentPage * 10) {
-              return null
-            } else {
-              return <DepositTile {...el} />
-            }
-          })
+          deposits.map(el => <DepositTile {...el} />)
         }
       </table>
-      <button onClick={() => setCurrentPage(currentPage + 1)}>
+      <button>
         <ShowMore />
         <span>Show more</span>
       </button>
@@ -40,22 +34,7 @@ export const ApplicationDeposits = () => {
 
 const DepositTile = ({ tarif, time, amount, profit }) => {
 
-
-  const calcProgressPercent = () => {
-    const start = time * 1000
-    const end = start + tarif * 1000 * 60 * 60 * 24
-
-    const delta = end - start
-
-    let percent = (Date.now() - start) / delta * 100
-
-    if (percent > 100) {
-      percent = 100
-    }
-    return percent
-  }
-
-  console.log(amount, calcProgressPercent())
+  const progressPercent = (Date.now() / time) * 100 > 100 ? 100 : (Date.now() / time) * 100
 
   return (
     <>
@@ -75,11 +54,11 @@ const DepositTile = ({ tarif, time, amount, profit }) => {
         <td>{amount}</td>
         <td>
           <div className={s.progress__bar}>
-            <div style={{ '--progress-width': `${calcProgressPercent()}%` }}></div>
+            <div style={{ '--progress-width': `${progressPercent}%` }}></div>
             <div></div>
           </div>
         </td>
-        <td>{(amount * (120 + (tarif - 10) * 5) / 100).toFixed(2)}</td>
+        <td>{(amount * (120 + (tarif) * 5) / 100).toFixed(2)}</td>
       </tr>
     </>
   )

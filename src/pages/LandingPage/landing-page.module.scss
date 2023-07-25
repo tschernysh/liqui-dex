@@ -349,7 +349,7 @@
       margin-right: 50px;
       display: flex;
       column-gap: 10px;
-      justify-content: center;
+      justify-content: space-between;
 
       @include for-specific-size(1320px) {
         flex-wrap: wrap;
@@ -405,7 +405,6 @@
           font-weight: 400;
           line-height: 150%;
           padding: 24px;
-
 
           span {
             margin-top: -5px;

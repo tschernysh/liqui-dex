@@ -55,10 +55,11 @@ export const ApplicationLayout = () => {
 
   return (
     <>
-
+      <LandingHeader />
       <ApplicationTabs />
       <Outlet />
 
+      <LandingFooter />
 
     </>
   )
