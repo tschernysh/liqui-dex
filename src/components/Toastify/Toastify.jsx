@@ -1,19 +1,9 @@
 import { useContext, useEffect, useRef } from "react";
 import { ToastifyContext } from "../../applicationContext";
 import s from './toastify.module.scss'
-import { AiOutlineClose, AiOutlineWarning } from "react-icons/ai";
-import { FaCheck } from "react-icons/fa";
-import { BiErrorCircle } from "react-icons/bi";
-import { VscLoading } from "react-icons/vsc";
-import { IoMdNotificationsOutline } from "react-icons/io";
+import { AiOutlineClose } from "react-icons/ai";
+import notificationLogo from 'media/img/notification-logo.png'
 
-const toastsIcons = {
-  'warning': <AiOutlineWarning />,
-  'success': <FaCheck />,
-  'error': <BiErrorCircle />,
-  'default': <IoMdNotificationsOutline />,
-  'loader': <VscLoading />
-}
 
 export const Toastify = () => {
   const { setToasifyData, toastifyData } = useContext(ToastifyContext)
@@ -38,7 +28,7 @@ export const Toastify = () => {
     <div className={s.toastify}>
       {toastifyData && (
         <div data-toast-type={toastifyData.type} className={s.toastify__tile}>
-          {toastsIcons[toastifyData.type]}
+          <img src={notificationLogo}/>
           <p>{toastifyData.text}</p>
           <button onClick={clearToastifyData}><AiOutlineClose /></button>
         </div>
