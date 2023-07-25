@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ApplicationActionCreator } from "../../store/reducers/application/action-creator";
 import { routerBook } from 'routes/routerBook';
-import { useAccount } from 'wagmi';
+import { useAccount, useSwitchNetwork } from 'wagmi';
 import { AccountActionCreator } from 'store/reducers/account/action-creator';
 import { ApplicationTabs } from 'components/ApplicationTabs/ApplicationTabs';
 import { LandingHeader } from 'components/LandingHeader/LandingHeader';
@@ -13,9 +13,18 @@ import { LandingFooter } from 'components/LandingFooter/LandingFooter';
 import { ApplicationDeposits } from 'components/ApplicationDeposits/ApplicationDeposits';
 import { ApplicationStatistics } from 'components/ApplicationStatistics/ApplicationStatistics';
 import { ApplicationAffiliate } from 'components/ApplicationAffilate/ApplicationAffiliate';
+import Config from 'config'
 
 export const ApplicationLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const { walletRPC } = useSelector(state => state.applicationReducer)
+
+  const network = useSwitchNetwork({
+    chainId: Config().CHAIN_ID,
+    onMutate(args) {
+      console.log('Mutate', args)
+    },
+  })
 
   const { redirectTo, walletAddress } = useSelector(state => state.applicationReducer)
   const navigate = useNavigate()
@@ -31,7 +40,7 @@ export const ApplicationLayout = () => {
   }, [redirectTo])
 
   useEffect(() => {
-    if (isDisconnected) {
+    if (isDisconnected || !walletRPC) {
       dispatch(AccountActionCreator.resetUserInfo())
     }
   }, [isDisconnected])

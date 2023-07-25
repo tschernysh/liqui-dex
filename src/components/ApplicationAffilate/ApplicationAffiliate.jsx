@@ -48,6 +48,7 @@ export const ApplicationAffiliate = () => {
 
 
   const showRealRef = (rl, index) => {
+    if (!rl) return 0
     if (index === 1) {
       return rl / 0.3
     } else if (index === 2) {
@@ -77,7 +78,7 @@ export const ApplicationAffiliate = () => {
                 </div>
                 <div className={s.landing__affiliate__tiles__tile__refs}>
                   <img src={Person} />
-                  <span>{structure[index]}</span>
+                  <span>{structure[index] ? structure[index] : 0}</span>
                 </div>
                 <img src={affiliateIcon} className={s.landing__affiliate__tiles__tile__affiliate} alt={`affiliate${index + 1}`} />
               </div>
@@ -89,14 +90,14 @@ export const ApplicationAffiliate = () => {
         <div className={s.tile}>
           <span>Your Referral Link</span>
           <div>
-            <a disable>{walletAddress.slice(0, sliceAmount)}...{walletAddress.slice(-sliceAmount)}</a>
+            <a disable>{walletAddress?.slice(0, sliceAmount)}...{walletAddress?.slice(-sliceAmount)}</a>
             <img onClick={copyReferralUrlToClipboard} src={Copy} />
           </div>
         </div>
         <div className={s.tile}>
           <span>Your Upliner</span>
           <div>
-            <a disable>{referrer.slice(0, sliceAmount)}...{referrer.slice(-sliceAmount)}</a>
+            <a disable>{referrer?.slice(0, sliceAmount)}...{referrer?.slice(-sliceAmount)}</a>
           </div>
         </div>
       </div>

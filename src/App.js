@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ApplicationActionCreator } from "store/reducers/application/action-creator";
 import { AccountActionCreator } from "store/reducers/account/action-creator";
 import Config from "config";
-import { WagmiConfig } from "wagmi"
+import { WagmiConfig, useSwitchNetwork } from "wagmi"
 import { ConfigContext, ToastifyContext } from "applicationContext";
 import { initWagmi } from "utils/initWagmi";
 import { Toastify } from "./components/Toastify/Toastify";
@@ -20,6 +20,7 @@ const App = () => {
   const [wagmiConfig, setWagmiConfig] = useState()
   const [ethereumClient, setEthereumClient] = useState()
   const [projectId, setProjectId] = useState()
+
 
   useMemo(() => {
     const { wagmiConfig, ethereumClient, projectId } = initWagmi()
