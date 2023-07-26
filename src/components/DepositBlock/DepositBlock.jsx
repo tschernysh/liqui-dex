@@ -59,7 +59,7 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
       if (location.pathname !== routerBook.dashboard) {
         navigate(routerBook.dashboard)
       } else {
-        if (depositAmount > tokenBalance || depositAmount < 10) {
+        if (depositAmount < 10) {
 
         } else {
           dispatch(ApplicationActionCreator.depositToken(+depositAmount, rangeValue))
@@ -111,7 +111,7 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
             </div>
 
             <div className={s.deposit__submit}>
-              <button disabled={!!walletAddress ? depositAmount > tokenBalance || depositAmount < 10 : false}
+              <button disabled={!!walletAddress ? depositAmount < 10 : false}
                 onClick={handleDeposit}>{isDepositTransaction ? (
                   <svg xmlns="http://www.w3.org/2000/svg" width="200px" height="100px" viewBox="0 0 100 50">
                     <circle cx="84" cy="25" r="10" fill="black">

@@ -293,6 +293,22 @@ export const ApplicationActionCreator = {
       const walletAddress = store().applicationReducer.walletAddress
       const defaultReferrer = store().applicationReducer.defaultReferrer
       const upline = store().accountReducer.userInfo.upline
+      const tokenBalance = store().applicationReducer.tokenBalance
+
+      if (tokenBalance < amount) {
+        dispatch(ApplicationActionCreator.setToastData({
+          type: 'error',
+          duration: 5000,
+          text: <>Your balance of BUSD is not enough</>,
+        }))
+        return
+      }
+
+      dispatch(ApplicationActionCreator.setToastData({
+        type: 'loader',
+        duration: 0,
+        text: <>Approving your BUSD tokens</>,
+      }))
 
       dispatch(ApplicationActionCreator.setIsDepositTransaction(true))
 
