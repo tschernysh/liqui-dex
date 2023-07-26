@@ -1,5 +1,7 @@
 import s from './landing-page.module.scss'
 
+import { useOutletContext } from 'react-router-dom'
+
 import landingIntoBanner from 'media/img/landing-intro-banner.png'
 
 import braveLogo from 'media/img/braveLogo.png'
@@ -103,6 +105,7 @@ const affiliateData = [
 ]
 
 export const LandingPage = () => {
+  const [signInButtonClickHandler] = useOutletContext();
   const [searchParams, setSearchParams] = useSearchParams()
   const { ethereumClient, projectId } = useContext(ConfigContext)
   const { connector: activeConnector, address, isDisconnected } = useAccount()
@@ -148,75 +151,7 @@ export const LandingPage = () => {
             <p>The first decentralized platform for staking BUSD and tokens of any DeFi platforms in BNB
               Chain</p>
           </div>
-          <button>Become a member</button>
-        </div>
-        <div className={s.landing__intro__image_desktop}>
-          <img src={landingIntoBanner} alt={'landingIntoBanner'} />
-        </div>
-      </section>
-
-      <section className={s.landing__partners}>
-        <img src={braveLogo} alt={'braveLogo'} />
-        <img src={circleLogo} alt={'circleLogo'} />
-        <img src={discrodLogo} alt={'discrodLogo'} />
-        <img src={jumpLogo} alt={'jumpLogo'} />
-        <img src={unknownLogo} alt={'unknownLogo'} />
-        <img src={magicEdenLogo} alt={'magicEdenLogo'} />
-      </section>
-
-      <section className={s.landing__about}>
-        <div className={s.landing__about__image}>
-          <img src={aboutImage} alt={'aboutImage'} />
-        </div>
-        <div className={s.landing__about__text}>
-          <h3>About LiquiDex</h3>
-          <p>Our goal is to popularize staking and make it accessible to millions of users.<br /><br /><br />We
-            are developing a platform on which every user will be able to receive a reward from any DeFi
-            project token by adding it to our staking pool. And all this, with simple and transparent
-            staking mechanics and a user-friendly interface.</p>
-        </div>
-      </section>
-
-      <section className={s.landing__stages}>
-        <h3>Platform Development Stages</h3>
-
-        <div className={s.landing__stages__tiles}>
-          {stages.map(({ text, icon, iconAngle }, index) => {
-            return (
-              <div key={index} className={s.landing__stages__tiles__tile}>
-                <p><span>0{index + 1}</span>{text}</p>
-                <img src={icon} alt={`stage${index + 1}`} />
-              </div>
-            )
-          })}
-        </div>
-
-        <p className={s.landing__stages__description}>Launching the platform is just the first first step in
-          creating a decentralized token staking ecosystem. And the first users of our platform will receive
-          their privileges.</p>
-      </section>
-
-      <section className={s.landing__deposit_block}>
-        <h3>Staking calculator</h3>
-        <p className={s.landing__deposit_block__description}>You can already calculate the efficiency and profitability of BUSD staking on our platform. Your staking profit will be accrued every minute, and the withdrawal is not limited in any way</p>
-        <DepositBlock />
-      </section>
-
-      <section className={s.landing__us}>
-        <h3>Why choose us?</h3>
-
-        <div className={s.landing__us__tiles}>
-          {ourStrength.map(({ header, icon, text }, index) => {
-            return (
-              <div key={index} className={s.landing__us__tiles__tile}>
-                <img src={icon} alt={`us${index + 1}`} />
-                <div className={s.landing__us__tiles__tile__text}>
-                  <b>{header}</b>
-                  <p>{text}</p>
-                </div>
-              </div>
-            )
-          })}
+          <button onClick={signInButtonClickHandler}>Become a member</button>
         </div>
       </section>
 
