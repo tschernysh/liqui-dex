@@ -1,5 +1,7 @@
 import s from './landing-page.module.scss'
 
+import {useOutletContext} from 'react-router-dom'
+
 import landingIntoBanner from 'media/img/landing-intro-banner.png'
 
 import braveLogo from 'media/img/braveLogo.png'
@@ -103,6 +105,7 @@ const affiliateData = [
 ]
 
 export const LandingPage = () => {
+    const [signInButtonClickHandler] = useOutletContext();
     const [searchParams, setSearchParams] = useSearchParams()
     const { ethereumClient, projectId } = useContext(ConfigContext)
     const { connector: activeConnector, address, isDisconnected } = useAccount()
@@ -148,7 +151,7 @@ export const LandingPage = () => {
                         <p>The first decentralized platform for staking BUSD and tokens of any DeFi platforms in BNB
                             Chain</p>
                     </div>
-                    <button>Become a member</button>
+                    <button onClick={signInButtonClickHandler}>Become a member</button>
                 </div>
                 <div className={s.landing__intro__image_desktop}>
                     <img src={landingIntoBanner} alt={'landingIntoBanner'}/>

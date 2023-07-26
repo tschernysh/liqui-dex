@@ -1,4 +1,4 @@
-import { Outlet, useNavigate } from 'react-router-dom'
+import {Outlet, useLocation, useNavigate} from 'react-router-dom'
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { routerBook } from 'routes/routerBook';
@@ -11,6 +11,7 @@ export const MainLayout = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { walletAddress, redirectTo } = useSelector(state => state.applicationReducer)
   const { open } = useWeb3Modal();
+  let { state } = useLocation();
 
   const dispatch = useDispatch()
   const navigate = useNavigate()
@@ -19,12 +20,12 @@ export const MainLayout = () => {
     if (!walletAddress) {
       open()
     } else {
-      navigate(routerBook.dashboard)
+      navigate(routerBook.dashboard, {state: {force: true}})
     }
-  }, [window.wallet])
+  }, [window.wallet, walletAddress])
 
   useEffect(() => {
-    if (!!redirectTo) {
+    if (!!redirectTo && !state?.force) {
       const path = redirectTo
       dispatch(ApplicationActionCreator.setRedirectTo(null))
       navigate(path)

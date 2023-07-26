@@ -19,8 +19,7 @@ export const ApplicationLayout = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { walletRPC } = useSelector(state => state.applicationReducer)
   const { chain } = useNetwork()
-  const { chains, error, isLoading, pendingChainId, switchNetwork } =
-    useSwitchNetwork()
+  const { chains, error, isLoading, pendingChainId, switchNetwork } = useSwitchNetwork()
 
   const { redirectTo, walletAddress } = useSelector(state => state.applicationReducer)
   const navigate = useNavigate()
@@ -28,8 +27,7 @@ export const ApplicationLayout = () => {
   const { isDisconnected } = useAccount()
 
   useEffect(() => {
-    console.log(chain.id, Config().CHAIN_ID)
-    if (chain.id !== Config().CHAIN_ID) {
+    if (chain?.id !== Config().CHAIN_ID) {
       switchNetwork?.(Config().CHAIN_ID)
     }
   }, [chain])
@@ -69,10 +67,8 @@ export const ApplicationLayout = () => {
     <>
       <LandingHeader />
       <ApplicationTabs />
-      <Outlet />
-
+      <Outlet/>
       <LandingFooter />
-
     </>
   )
 }
