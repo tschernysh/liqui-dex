@@ -67,7 +67,7 @@ export const ApplicationLayout = () => {
     <>
       <LandingHeader />
       <ApplicationTabs />
-      <Outlet/>
+      <Outlet />
       <LandingFooter />
     </>
   )
