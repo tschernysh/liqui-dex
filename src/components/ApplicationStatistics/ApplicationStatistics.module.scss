@@ -65,6 +65,10 @@
         gap: 44px;
         overflow: hidden;
         flex: 1 1 48%;
+        @include for-specific-size(900px){
+          padding: 20px 0;
+          gap: 20px;
+        }
         svg{
           left: 0;
           bottom: 0;
@@ -72,6 +76,10 @@
           transform: translate(0, 30%);
           height: 100%;
           position: absolute;
+
+        @include for-specific-size(900px){
+            transform: translate(0, 40%);
+          }
         }
         &:nth-child(3){
           background: linear-gradient(323deg, #A51FFF 0%, #615EF5 100%);

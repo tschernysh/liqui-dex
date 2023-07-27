@@ -68,17 +68,21 @@ export const ApplicationAffiliate = () => {
           {affiliateData.map(({ percent }, index) => {
             return (
               <div key={index} className={s.landing__affiliate__tiles__tile}>
-                <div className={s.landing__affiliate__tiles__tile__level}>
-                  <p>Level {index + 1}</p>
-                  <span>{percent}%</span>
-                </div>
-                <div className={s.landing__affiliate__tiles__tile__turnover}>
-                  <p>BUSD</p>
-                  <span>{showRealRef(refTurnover[index], index)}</span>
-                </div>
-                <div className={s.landing__affiliate__tiles__tile__refs}>
-                  <img src={Person} />
-                  <span>{structure[index] ? structure[index] : 0}</span>
+                <div className={s.landing__affiliate__tiles__tile__box}>
+                  <div className={s.landing__affiliate__tiles__tile__level}>
+                    <p>Level {index + 1}</p>
+                    <span>{percent}%</span>
+                  </div>
+                  <div className={s.landing__affiliate__tiles__tile__wrapper}>
+                    <div className={s.landing__affiliate__tiles__tile__turnover}>
+                      <p>BUSD</p>
+                      <span>{showRealRef(refTurnover[index], index)}</span>
+                    </div>
+                    <div className={s.landing__affiliate__tiles__tile__refs}>
+                      <img src={Person} />
+                      <span>{structure[index] ? structure[index] : 0}</span>
+                    </div>
+                  </div>
                 </div>
                 <img src={affiliateIcon} className={s.landing__affiliate__tiles__tile__affiliate} alt={`affiliate${index + 1}`} />
               </div>

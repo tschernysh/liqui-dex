@@ -380,7 +380,7 @@
         display: flex;
         align-items: center;
           @include for-specific-size(1300px){
-            font-size: 10px;
+            font-size: 12px;
             text-align: left;
           }
       }

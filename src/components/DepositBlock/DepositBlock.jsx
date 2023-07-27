@@ -163,7 +163,7 @@ export const DepositBlock = ({ signInButtonClickHandler, showMin = false }) => {
                 <p>Daily ROI</p>
                 <div>
                   <img src={BNB} alt="" />
-                  <span>{(depositAmount * ((120 + (rangeValue - config.min) * 5) / 100) / rangeValue / 10).toFixed(2)}%</span>
+                  <span>{(1000 * ((120 + (rangeValue - config.min) * 5) / 100) / rangeValue / 10).toFixed(2)}%</span>
                 </div>
               </div>
               <div className={s.deposit__tile}>
