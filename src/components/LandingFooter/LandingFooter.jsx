@@ -91,8 +91,8 @@ export const LandingFooter = ({ signInButtonClickHandler }) => {
               <span >{buttonContent}</span>
             </button>
           </div>
-        </div>
-      </div>
-    </footer>
+        </div >
+      </div >
+    </footer >
   )
 }
