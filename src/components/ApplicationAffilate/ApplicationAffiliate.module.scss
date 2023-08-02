@@ -8,7 +8,7 @@
   margin: 105px 0;
   position: relative;
   @include for-specific-size(640px){
-    padding: 0px 20px
+    padding: 20px 20px
   }
   &:before {
     z-index: -1;

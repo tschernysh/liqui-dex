@@ -1,4 +1,4 @@
-import {Outlet, useLocation, useNavigate} from 'react-router-dom'
+import { Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { routerBook } from 'routes/routerBook';
@@ -20,7 +20,7 @@ export const MainLayout = () => {
     if (!walletAddress) {
       open()
     } else {
-      navigate(routerBook.dashboard, {state: {force: true}})
+      navigate(routerBook.dashboard, { state: { force: true } })
     }
   }, [window.wallet, walletAddress])
 
@@ -36,7 +36,7 @@ export const MainLayout = () => {
     <>
       <LandingHeader signInButtonClickHandler={signInButtonClickHandler} />
       <Outlet context={[signInButtonClickHandler, setIsModalOpen]} />
-      <LandingFooter />
+      <LandingFooter signInButtonClickHandler={signInButtonClickHandler} />
     </>
   )
 }

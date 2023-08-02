@@ -30,10 +30,13 @@ export const ApplicationDeposits = () => {
           })
         }
       </table>
-      <button onClick={() => setCurrentPage(currentPage + 1)}>
-        <ShowMore />
-        <span>Show more</span>
-      </button>
+      {
+        deposits.lenght > 10 && <button onClick={() => setCurrentPage(currentPage + 1)}>
+          <ShowMore />
+          <span>Show more</span>
+        </button>
+
+      }
     </div>
   )
 }

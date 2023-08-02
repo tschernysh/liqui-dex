@@ -8,11 +8,16 @@ import Config from 'config'
 import { useContext, useMemo } from "react"
 import { ToastifyContext } from "applicationContext"
 import { slice } from "viem"
+import { routerBook } from "routes/routerBook"
+import { useLocation } from "react-router-dom"
+import { useDisconnect } from "wagmi"
 
-export const LandingFooter = () => {
+export const LandingFooter = ({ signInButtonClickHandler }) => {
 
   const baseUrl = Config().BASE_URL;
   const { deposits } = useSelector(store => store.accountReducer.userInfo)
+  const location = useLocation();
+  const { disconnect } = useDisconnect();
 
   const walletAddress = useSelector(store => store.applicationReducer.walletAddress)
   const defaultReferrer = useSelector(store => store.applicationReducer.defaultReferrer)
@@ -34,6 +39,22 @@ export const LandingFooter = () => {
       duration: 3000
     })
   }
+
+  const buttonContent = useMemo(() => {
+    if (walletAddress) {
+      return 'Disconnect'
+    }
+
+    return 'Login'
+  }, [location.pathname, walletAddress])
+
+  const buttonClickHandler = useMemo(() => {
+    if (location.pathname === routerBook.dashboard || location.pathname === routerBook.bonuses) {
+      return disconnect;
+    }
+
+    return signInButtonClickHandler
+  }, [location.pathname, walletAddress])
 
   const sliceAmount = window.innerWidth <= 640 ? 10 : 15
 
@@ -65,9 +86,9 @@ export const LandingFooter = () => {
             </a>
           </div>
           <div className={s.bottom__login}>
-            <button >
+            <button onClick={buttonClickHandler} className={s.header__wallet_desktop}>
               <img src={Profile} />
-              <span>Login</span>
+              <span >{buttonContent}</span>
             </button>
           </div>
         </div>
