@@ -9,7 +9,7 @@ import { useContext, useMemo } from "react"
 import { ToastifyContext } from "applicationContext"
 import { slice } from "viem"
 
-export const LandingFooter = () => {
+export const LandingFooter = ({signInButtonClickHandler}) => {
 
   const baseUrl = Config().BASE_URL;
   const { deposits } = useSelector(store => store.accountReducer.userInfo)
@@ -65,7 +65,7 @@ export const LandingFooter = () => {
             </a>
           </div>
           <div className={s.bottom__login}>
-            <button >
+            <button onClick={signInButtonClickHandler}>
               <img src={Profile} />
               <span>Login</span>
             </button>

@@ -36,7 +36,7 @@ export const MainLayout = () => {
     <>
       <LandingHeader signInButtonClickHandler={signInButtonClickHandler} />
       <Outlet context={[signInButtonClickHandler, setIsModalOpen]} />
-      <LandingFooter />
+      <LandingFooter signInButtonClickHandler={signInButtonClickHandler} />
     </>
   )
 }
