@@ -22,6 +22,7 @@ export const LandingFooter = ({ signInButtonClickHandler }) => {
   const walletAddress = useSelector(store => store.applicationReducer.walletAddress)
   const defaultReferrer = useSelector(store => store.applicationReducer.defaultReferrer)
   const upline = useSelector(store => store.accountReducer.userInfo.upline)
+  const total_invested = useSelector(store => store.accountReducer.userInfo.total_invested)
   const referrer = upline || localStorage.getItem('refAddress') || defaultReferrer
 
   const { setToasifyData } = useContext(ToastifyContext)
@@ -31,6 +32,7 @@ export const LandingFooter = ({ signInButtonClickHandler }) => {
   }, [walletAddress, deposits])
 
   const copyReferralUrlToClipboard = () => {
+    if (!total_invested) return
     navigator.clipboard.writeText(referralUrl)
 
     setToasifyData({

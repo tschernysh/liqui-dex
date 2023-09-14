@@ -121,8 +121,6 @@ const App = () => {
         </WagmiConfig >
       </ConfigContext.Provider>
     </ToastifyContext.Provider>
-
-
   )
 }
 export default App;

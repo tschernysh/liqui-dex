@@ -18,7 +18,7 @@ const affiliateData = [
 
 export const ApplicationAffiliate = () => {
 
-  const { structure, refTurnover } = useSelector(state => state.accountReducer.userInfo)
+  const { structure, refTurnover, total_invested } = useSelector(state => state.accountReducer.userInfo)
 
   const baseUrl = Config().BASE_URL;
   const { deposits } = useSelector(store => store.accountReducer.userInfo)
@@ -35,6 +35,7 @@ export const ApplicationAffiliate = () => {
   }, [walletAddress, deposits])
 
   const copyReferralUrlToClipboard = () => {
+    if (!total_invested) return
     navigator.clipboard.writeText(referralUrl)
 
     setToasifyData({
