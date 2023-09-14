@@ -32,14 +32,21 @@ export const LandingFooter = ({ signInButtonClickHandler }) => {
   }, [walletAddress, deposits])
 
   const copyReferralUrlToClipboard = () => {
-    if (!total_invested) return
-    navigator.clipboard.writeText(referralUrl)
+    if (!total_invested) {
+      setToasifyData({
+        text: 'You need to make first deposit to invite referrals!',
+        type: 'success',
+        duration: 3000
+      })
+    } else {
+      navigator.clipboard.writeText(referralUrl)
 
-    setToasifyData({
-      text: 'The referral link has been copied!',
-      type: 'success',
-      duration: 3000
-    })
+      setToasifyData({
+        text: 'The referral link has been copied!',
+        type: 'success',
+        duration: 3000
+      })
+    }
   }
 
   const buttonContent = useMemo(() => {
