@@ -89,7 +89,7 @@ export const LandingFooter = ({ signInButtonClickHandler }) => {
         <div className={s.bottom}>
           <div><img className={s.bottom__image_desktop} src={FullLogo} alt="" /></div>
           <div>
-            <a className={s.bottom__folow_us}>
+            <a target='_blank' href='https://t.me/LiquidexCommunity' style={{ textDecoration: 'none' }} className={s.bottom__folow_us}>
               <span>Follow us</span>
               <img src={Telegram} alt="" />
             </a>
